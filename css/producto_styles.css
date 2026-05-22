@@ -10,75 +10,98 @@ body {
 }
 
 /* ===== HEADER ===== */
-header {
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0 0px;
     position: sticky;
     top: 0;
-    background: white;
     z-index: 1000;
-    padding: 20px 5%;
-    border-bottom: 1px solid #eee;
 }
 
-nav {
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 75px;
+    padding: 0 20px;
     display: flex;
+    align-items: center;
+    margin: 0 auto;
     justify-content: space-between;
-    align-items: center;
+    flex-wrap: nowrap;
 }
 
-/* Logo */
-.logo {
+.Logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Logo img {
+    width: 90px;
+    height: auto;
+    display: block;
+}
+
+.nombre-logo {
+    font-family: 'Kurale', serif;
+    font-size: 40px;
+    font-weight: normal;
+    color: #000000;
+}
+
+/* Cuadro que encierra las categorias (Mujer, Hombre, Lo nuevo) */
+.nav-categorias {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Para botones de navegacion (Mujer, Hombre, Lo nuevo) */
+.boton-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-family: 'Inter', serif;
+    font-size: 16px;
+    min-width: 86px;
+    height: 30px;
+    padding: auto;
     gap: 10px;
-}
-
-.logo-img {
-    height: 100px;
-}
-
-.logo a {
+    border: 2px solid #000000;
+    border-radius: 50px;
     text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1.5rem;
+    transition: all 0.2s ease;
 }
 
-/* Menú */
-.menu-central {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.menu-central a {
-    text-decoration: none;
-    color: black;
-    padding: 8px 20px;
-    border: 2px solid black;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-
-.menu-central a:hover {
-    background: black;
-    color: white;
-}
-
-
-/* Iconos */
-.iconos-derecha {
+/* Cuadro que encierra los iconos (Favoritos, Bolsa, Usuario) */
+.nav-iconos {
     display: flex;
     gap: 20px;
-    list-style: none;
+    margin-left: auto;
 }
 
-.icono-nav {
-    width: 24px;
-    transition: 0.2s;
+/* Para botones de iconos (Favoritos, Bolsa, Usuario) */
+.boton-icon {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    text-decoration: none;
+    color: #000000;
+    transition: transform 0.2s ease;
 }
 
-.icono-nav:hover {
+.boton-icon:hover {
     transform: scale(1.1);
+}
+
+/* Hovering al poner el mouse oscurece las opciones del nav */
+.boton-nav:hover {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 /* ===== MAIN ===== */
