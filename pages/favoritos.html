@@ -4,36 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaWear - Mis Favoritos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/favoritos.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="../assets/iconos/logo.svg" alt="Logo NovaWear" class="logo-img">
-                <a href="../index.html" tabindex="0">NovaWear</a>
-            </div>
-            
-            <ul class="menu-central">
-                <li><a href="mujer.html" tabindex="0">MUJER</a></li>
-                <li><a href="hombre.html" tabindex="0">HOMBRE</a></li>
-                <li><a href="../index.html#colecciones-titulo" tabindex="0">LO NUEVO</a></li>
-            </ul>
-            
-            <ul class="iconos-derecha">
-                <li><a href="favoritos.html" aria-label="Favoritos" class="icono-con-badge" tabindex="0">
-                    <img src="../assets/iconos/favoritos.svg" alt="Favoritos" class="icono-nav">
-                    <span class="badge" aria-label="4 favoritos">4</span>
-                </a></li>
-                <li><a href="carrito.html" aria-label="Carrito" class="icono-con-badge" tabindex="0">
-                    <img src="../assets/iconos/bolsa.svg" alt="Carrito" class="icono-nav">
-                    <span class="badge" aria-label="0 productos en carrito">0</span>
-                </a></li>
-                <li><a href="login.html" aria-label="Usuario" tabindex="0">
-                    <img src="../assets/iconos/cuenta.svg" alt="Usuario" class="icono-nav">
-                </a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="header-container">
+            <a class="Logo" href="../index.html">
+                <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+                <span class="nombre-logo">NovaWear</span>
+            </a>
+
+            <nav class="nav-categorias">
+                <a href="mujer.html" class="boton-nav">Mujer</a>
+                <a href="hombre.html" class="boton-nav">Hombre</a>
+                <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+            </nav>
+
+            <nav class="nav-iconos" aria-label="Herramientas de usuario">
+                <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
+                <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
+                <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -145,3 +142,4 @@
     </footer>
 </body>
 </html>
+
