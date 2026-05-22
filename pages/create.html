@@ -37,22 +37,24 @@
 <main class="contenedor-crear">
     <h1>Crear Cuenta</h1>
     <p class="subtitulo">Únete a lo último en moda.</p>
+
+    <form>
     <div class="filas">
         <div class="grupo-filas">
             <label for="nombre">Nombre</label>
-            <input type="text" class="input-field">
+            <input id="nombre" type="text" class="input-field">
         </div>
 
         <div class="grupo-filas">
             <label for="apellidos">Apellidos</label>
-            <input type="text" class="input-field">
+            <input id="apellidos" type="text" class="input-field">
         </div>
     </div>
 
     <div class="filas">
         <div class="grupo-filas">
             <label for="correo">Email</label>
-            <input type="email" class="input-field" id="correo">
+            <input id="correo" type="email" class="input-field">
         </div>
     </div>
 
@@ -65,7 +67,9 @@
         </div>
     </div>
 
-    <button class="boton-crear">Crear Cuenta</button>
+    <button type="submit" class="boton-crear">Crear Cuenta</button>
+    </form>
+    
     <p class="registro">¿Ya tienes una cuenta? <a class="link-inicio" href="login.html">Inicia sesión aquí</a></p>
 </main>
 
@@ -118,4 +122,7 @@
         <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
     </div>
 </footer>
+<script src="../js/create.js"></script>
+</body>
+</html>
 
