@@ -2,7 +2,6 @@
 
 El sistema propuesto consiste en una plataforma eCommerce web orientada a la venta de ropa juvenil y moda contemporánea. La aplicación permite a los usuarios explorar un catálogo de productos organizados por categorías (mujer y hombre), visualizar detalles de cada prenda, agregar productos a un carrito de compras, guardar productos en favoritos y realizar el proceso de pago de manera segura.
 
-Adicionalmente, el sistema contará con un módulo administrativo que permitirá la gestión de productos, inventario y pedidos, garantizando el correcto funcionamiento de la tienda en línea.
 
 
 ## Integrantes
