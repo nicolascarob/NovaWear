@@ -1,28 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 .main-header{
     background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0; 
     padding: 0 0px;
     position: sticky; 
     top: 0;           
-    z-index: 1000;  
+    z-index: 1000;   
 }
 
 .header-container {
     width: 100%;
     max-width: 1200px;
     height: 75px;
-    gap: 74px;
     padding: 0 20px;
     display: flex;
     align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
-
 
 .Logo {
     display: flex;
     align-items: center;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none; 
 }
 
 .Logo img {
@@ -32,50 +42,46 @@
 }
 
 .nombre-logo {
-    font-family: 'Kurale', serif;
+    font-family: 'Kurale', serif;   
     font-size: 40px;
     font-weight: normal;
     color: #000000;
 }
 
-/*Cuadro que encierra las categorias (Mujer, Hombre, Lo nuevo)*/
+/* Cuadro que encierra las categorias */
 .nav-categorias {
     display: flex;
     gap: 32px;
-    margin-left: auto; 
-    margin-right: auto; 
+    flex: 1;
+    justify-content: center;
 }
 
-/*Para botones de navegacion (Mujer, Hombre, Lo nuevo)*/
+/* Botones navegación */
 .boton-nav {
-
     display: flex;
     justify-content: center;
-    align-items: center;     
-
+    align-items: center;
     color: #000000;
-    font-family: 'Inter', serif; 
+    font-family: 'Inter', serif;
     font-size: 16px;
     min-width: 86px;
     height: 30px;
-    padding: auto;
     gap: 10px;
     border: 2px solid #000000;
-    border-radius: 50px; 
-    text-decoration: none; 
+    border-radius: 50px;
+    text-decoration: none;
     transition: all 0.2s ease;
 }
 
-/*Cuadro que encierra los iconos (Favoritos, Bolsa, Usuario)*/
+/* Iconos */
 .nav-iconos {
     display: flex;
-    gap: 20px; 
-    margin-left: auto; 
+    gap: 20px;
+    margin-left: auto;
 }
 
-/*Para botones de iconos (Favoritos, Bolsa, Usuario)*/
 .boton-icon {
-    display: flex; 
+    display: flex;
     width: 28px;
     height: 28px;
     text-decoration: none;
@@ -84,11 +90,10 @@
 }
 
 .boton-icon:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 
-/*Hovering al poner el mouse oscurece las opciones del nav*/
 .boton-nav:hover {
     background-color: #000000;
     color: #ffffff;
@@ -213,12 +218,9 @@ footer {
 
   /* HEADER */
   .header-container {
-    flex-wrap: wrap;
-    gap: 10px; 
-    height: auto;
-    justify-content: space-between;
-    padding: 10px;
-  }
+    justify-content: center;
+    padding: 0 10px;
+}
 
   .Logo img {
     width: 70px;
@@ -285,6 +287,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
