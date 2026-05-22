@@ -40,7 +40,7 @@
     <h1>Bienvenido de nuevo</h1>
     <p class="subtitulo">Inicie sesión para acceder a su cuenta.</p>
 
-    <form>
+    <form id="loginForm">
         <div class="filas grupo-filas">
             <label for="correo">Email</label>
             <input type="email" id="correo" class="input-field">
@@ -53,11 +53,12 @@
 
         <a href="#" class="olvido-pass">Forgot password?</a>
         
-        <button type="button" class="boton-iniciar" onclick="window.location.href='../index.html'">
+        <button type="submit" class="boton-iniciar">
         Iniciar Sesión
         </button>
 
         <p class="registro">¿No tienes una cuenta? <a href="create.html">Regístrate aquí</a></p>
+        <p class="registro">¿Eres administrador? <a href="log-admin.html">Ingresa por aqui</a></p>
     </form>
 </div>
 
@@ -106,4 +107,7 @@
         <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
     </div>
 </footer>
+<script src="../js/login.js"></script>
+</body>
+</html>
 
