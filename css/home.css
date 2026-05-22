@@ -23,117 +23,98 @@ body {
 }
 
 /* ===== HEADER ===== */
-header {
-    padding: 20px 5%;
+.main-header {
+    background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
+    padding: 0 0px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav {
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 75px;
+    padding: 0 20px;
     display: flex;
+    align-items: center;
+    margin: 0 auto;
     justify-content: space-between;
-    align-items: center;
+    flex-wrap: nowrap;
 }
 
-.logo {
+.Logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Logo img {
+    width: 90px;
+    height: auto;
+    display: block;
+}
+
+.nombre-logo {
+    font-family: 'Kurale', serif;
+    font-size: 40px;
+    font-weight: normal;
+    color: #000000;
+}
+
+/* Cuadro que encierra las categorias (Mujer, Hombre, Lo nuevo) */
+.nav-categorias {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Para botones de navegacion (Mujer, Hombre, Lo nuevo) */
+.boton-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-family: 'Inter', serif;
+    font-size: 16px;
+    min-width: 86px;
+    height: 30px;
+    padding: auto;
     gap: 10px;
-}
-
-.logo-img {
-    height: 70px;
-    width: auto;
-}
-
-.logo a {
+    border: 2px solid #000000;
+    border-radius: 50px;
     text-decoration: none;
-    color: #000;
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    transition: all 0.2s ease;
 }
 
-.logo a:focus {
-    outline: 2px solid #ff4d4d;
-    outline-offset: 2px;
-}
-
-.menu-central {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.menu-central li a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    padding: 10px 25px;
-    border: 2px solid black;
-    border-radius: 30px;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.menu-central li a:hover,
-.menu-central li a:focus {
-    background-color: black;
-    color: white;
-    outline: 2px solid #ff4d4d;
-    outline-offset: 2px;
-}
-
-.iconos-derecha {
+/* Cuadro que encierra los iconos (Favoritos, Bolsa, Usuario) */
+.nav-iconos {
     display: flex;
     gap: 20px;
-    list-style: none;
-    align-items: center;
+    margin-left: auto;
 }
 
-.iconos-derecha li a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.3rem;
-    transition: transform 0.2s;
-    position: relative;
-    display: inline-block;
-}
-
-.iconos-derecha li a:hover,
-.iconos-derecha li a:focus {
-    transform: scale(1.1);
-    outline: 2px solid #ff4d4d;
-    outline-offset: 4px;
-}
-
-.icono-nav {
-    width: 24px;
-    height: 24px;
-    display: block;
-    pointer-events: none;
-}
-
-/* Badge */
-.icono-con-badge {
-    position: relative;
-}
-
-.badge {
-    position: absolute;
-    top: -8px;
-    right: -12px;
-    background-color: #ff4d4d;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 50%;
+/* Para botones de iconos (Favoritos, Bolsa, Usuario) */
+.boton-icon {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-    pointer-events: none;
+    width: 28px;
+    height: 28px;
+    text-decoration: none;
+    color: #000000;
+    transition: transform 0.2s ease;
+}
+
+.boton-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Hovering al poner el mouse oscurece las opciones del nav */
+.boton-nav:hover {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 /* ===== HERO KENDALL ===== */
