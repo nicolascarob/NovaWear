@@ -98,16 +98,18 @@ nav {
     gap: 40px;
 }
 
-/* ===== FILTROS LATERAL FIJA ===== */
+/* ===== FILTROS LATERAL FIJA CON SCROLL ===== */
 .filtros-lateral {
     width: 260px;
     flex-shrink: 0;
     background: #f8f8f8;
     padding: 20px;
     border-radius: 12px;
-    height: fit-content;
     position: sticky;
     top: 120px;
+    max-height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
 }
 
 .filtros-lateral h2 {
@@ -116,6 +118,32 @@ nav {
     padding-bottom: 10px;
     border-bottom: 2px solid black;
     display: inline-block;
+}
+
+/* Contenedor con scroll para los filtros */
+.filtros-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Scrollbar personalizado */
+.filtros-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.filtros-scroll::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.filtros-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.filtros-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .filtro-grupo {
@@ -152,6 +180,28 @@ nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
+}
+
+/* Botón aplicar filtros */
+.btn-aplicar-filtros {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s;
+    border-radius: 8px;
+}
+
+.btn-aplicar-filtros:hover,
+.btn-aplicar-filtros:focus {
+    background-color: #333;
+    transform: translateY(-2px);
+    outline: 2px solid #ff4d4d;
+    outline-offset: 2px;
 }
 
 /* ===== GRID DE PRODUCTOS (igual al index) ===== */
@@ -341,6 +391,7 @@ img {
         width: 100%;
         position: static;
         margin-bottom: 30px;
+        max-height: 300px;
     }
     
     .tallas-grid {
@@ -354,67 +405,4 @@ img {
     .footer-grid {
         grid-template-columns: 1fr;
     }
-}
-/* ===== FILTROS LATERAL FIJA CON SCROLL ===== */
-.filtros-lateral {
-    width: 260px;
-    flex-shrink: 0;
-    background: #f8f8f8;
-    padding: 20px;
-    border-radius: 12px;
-    height: fit-content;
-    position: sticky;
-    top: 120px;
-    /* NUEVO: Altura máxima y scroll interno */
-    max-height: calc(100vh - 140px);
-    display: flex;
-    flex-direction: column;
-}
-
-/* NUEVO: Contenedor con scroll para los filtros */
-.filtros-scroll {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-/* NUEVO: Personalizar scrollbar */
-.filtros-scroll::-webkit-scrollbar {
-    width: 4px;
-}
-
-.filtros-scroll::-webkit-scrollbar-track {
-    background: #e0e0e0;
-    border-radius: 4px;
-}
-
-.filtros-scroll::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-}
-
-.filtros-scroll::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* NUEVO: Botón aplicar filtros */
-.btn-aplicar-filtros {
-    width: 100%;
-    padding: 12px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: all 0.3s;
-    border-radius: 8px;
-}
-
-.btn-aplicar-filtros:hover,
-.btn-aplicar-filtros:focus {
-    background-color: #333;
-    transform: translateY(-2px);
-    outline: 2px solid #ff4d4d;
-    outline-offset: 2px;
 }
