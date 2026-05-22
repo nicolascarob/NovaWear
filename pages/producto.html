@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaWear - Tienda de Moda</title>
+    <title>NovaWear - Producto</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,24 +38,24 @@
 
 <!-- ===== MAIN ===== -->
 <main class="producto">
-      <div class="producto-container">
+    <div class="producto-container">
         <div class="producto-img">
             <img src="../img/gaban_beige.png" alt="Gaban beige">
         </div>
 
         <!-- Info -->
         <div class="producto-info">
-            <h1>Gaban beige minimalista</h1>
-            <p class="precio">$289.000</p>
+            <h1>Gabán beige minimalista</h1>
+            <p class="precio">$289,000 COP</p>
 
             <hr>
 
             <p class="descripcion">
                 Un abrigo beige atemporal confeccionado con una mezcla de lana de primera calidad. 
-        Presenta un corte holgado y un diseño minimalista para una elegancia natural.
+                Presenta un corte holgado y un diseño minimalista para una elegancia natural.
             </p>
 
-         <div class="tallas">
+            <div class="tallas">
                 <p>Seleccionar talla</p>
                 <div class="tallas-opciones" role="group" aria-label="Seleccionar talla">
                     <button aria-pressed="false">XS</button>
@@ -66,97 +66,98 @@
                 </div>
             </div>
 
-        <div class="cantidad">
+            <div class="cantidad">
                 <p>Cantidad</p>
                 <select>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
-             <!-- Botones -->
-            <div class="acciones">
-            <a href="../pages/favoritos.html" class="fav-btn" aria-label="Agregar a favoritos">
-            <img src="../assets/iconos/favoritos.svg" alt="">
-             </a>
 
-             <a href="../pages/carrito.html" class="add-cart">
-             <img src="../assets/iconos/bolsa.svg" alt="">
-            Añadir al carrito
-             </a>
+            <!-- Botones -->
+            <div class="acciones">
+                <a href="../pages/favoritos.html" class="fav-btn" aria-label="Agregar a favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="">
+                </a>
+
+                <a href="../pages/carrito.html" class="add-cart">
+                    <img src="../assets/iconos/bolsa.svg" alt="">
+                    Añadir al carrito
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="separador">
+    
+    <h2 class="recomendados-titulo">También te puede gustar</h2>
+
+    <!-- GRID DE PRODUCTOS (igual al index/mujer/hombre) -->
+    <div class="grid-cards">
+        <!-- Producto 1 -->
+        <div class="product-card">
+            <div class="card-img" style="background-image: url('../img/chaqueta_negra_oversize.jpg')" role="img" aria-label="Chaqueta negra oversize">
+                <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                </button>
+            </div>
+            <div class="card-info">
+                <h3>Chaqueta negra oversize</h3>
+                <span class="precio">$249,000 COP</span>
+                <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
             </div>
         </div>
 
+        <!-- Producto 2 -->
+        <div class="product-card">
+            <div class="card-img" style="background-image: url('../img/camisa_lana.jpeg')" role="img" aria-label="Camisa de lana">
+                <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                </button>
+            </div>
+            <div class="card-info">
+                <h3>Camisa de lana</h3>
+                <span class="precio">$75,000 COP</span>
+                <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+            </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card">
+            <div class="card-img" style="background-image: url('../img/chaqueta_cafe.jpg')" role="img" aria-label="Chaqueta café de cuero">
+                <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                </button>
+            </div>
+            <div class="card-info">
+                <h3>Chaqueta café de cuero</h3>
+                <span class="precio">$300,000 COP</span>
+                <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+            </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card">
+            <div class="card-img" style="background-image: url('../img/saco_blanco.jpg')" role="img" aria-label="Saco de lana blanco">
+                <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                </button>
+            </div>
+            <div class="card-info">
+                <h3>Saco de lana blanco</h3>
+                <span class="precio">$199,000 COP</span>
+                <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+            </div>
+        </div>
     </div>
-    <hr>
-        <h2>También te puede gustar</h2>
-
-
-    <!-- GRID DE PRODUCTOS -->
-    <div class="grid-cards">
-
-        <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/chaqueta_negra_oversize.jpg" alt="Chaqueta negra oversize">
-             
-
-              <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
-                     <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-
-            <p class="name">Chaqueta negra oversize</p>
-            <p class="price">$249.000</p>
-        </div>
-
-         <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/camisa_lana.jpeg" alt="Camisa de lana">
-
-             <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
-                     <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-           
-            <p class="name">Camisa de lana</p>
-            <p class="price">$75.000</p>
-        </div>
-
-        <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/chaqueta_cafe.jpg" alt="Chaqueta café de cuero">
-
-             <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">       
-             <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-           
-            <p class="name">Chaqueta café de cuero</p>
-            <p class="price">$300.000</p>
-        </div>
-
-        <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/saco_blanco.jpg" alt="Saco de lana blanco">
-
-             <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
-                     <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-           
-            <p class="name">Saco de lana blanco</p>
-            <p class="price">$199.000</p>
-        </div>
-
-    </div>
-
-    
 </main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="footer-grid">
-
         <div class="footer-col">
             <h4>NOVAWEAR</h4>
             <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
@@ -191,24 +192,21 @@
                 <li><a href="#">Pinterest</a></li>
             </ul>
         </div>
-
     </div>
 
     <div class="copyright">
         <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
     </div>
 </footer>
-</body>
 
 <script>
 function toggleLike(btn) {
     btn.classList.toggle("liked");
-
-    let estado = btn.classList.contains("liked");
+    var estado = btn.classList.contains("liked");
     btn.setAttribute("aria-pressed", estado);
 }
-</script>
-<script>
+
+// Selección de tallas
 const tallas = document.querySelectorAll(".tallas-opciones button");
 
 tallas.forEach(btn => {
@@ -217,11 +215,18 @@ tallas.forEach(btn => {
             b.classList.remove("active");
             b.setAttribute("aria-pressed", "false");
         });
-
         btn.classList.add("active");
         btn.setAttribute("aria-pressed", "true");
     });
 });
+
+// Mensaje demo para botones de agregar al carrito
+document.querySelectorAll('.btn-agregar-carrito').forEach(btn => {
+    btn.addEventListener('click', function() {
+        alert('Producto agregado al carrito');
+    });
+});
 </script>
 
+</body>
 </html>
