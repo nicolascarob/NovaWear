@@ -214,45 +214,22 @@ footer {
 
 
 /* ================= RESPONSIVE PARA CELULARES ================= */
-@media (max-width: 480px) {
-
-  /* HEADER */
-  .header-container {
-    justify-content: center;
-    padding: 0 10px;
-}
-
-  .Logo img {
-    width: 70px;
-  }
-
-  .nombre-logo {
-    font-size: 28px;
-  }
-
-  
-  .nav-categorias {
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap; 
-    order: 3; /* baja debajo del header */
-  }
-
-  .boton-nav {
-    font-size: 14px;
-    min-width: auto;
-    padding: 5px 10px;
-  }
-
-  .nav-iconos {
-    gap: 10px;
-  }
-
-  .boton-icon {
-    width: 28px;
-    height: 28px;
-  }
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .nav-categorias {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .nav-iconos {
+        margin-left: 0;
+    }
 
   /* MAIN CONTENT */
   .main-content {
