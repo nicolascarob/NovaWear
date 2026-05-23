@@ -251,6 +251,12 @@ body {
     display: block;
 }
 
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .card-info {
     padding: 15px;
     text-align: left;
