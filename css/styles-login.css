@@ -289,6 +289,21 @@ footer {
 
 @media (max-width: 768px) {
 
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .nav-categorias {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .nav-iconos {
+        margin-left: 0;
+    }
 
     .contenedor-login {
         padding: 71px 20px; 
@@ -306,11 +321,7 @@ footer {
         max-width: 490px;
     }
 
-    .header-container {
-        justify-content: center;
-    }
 
-  
     .footer-grid {
         grid-template-columns: 1fr;
     }
