@@ -407,9 +407,20 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav {
+.header-container {
         flex-direction: column;
-        gap: 20px;
+        height: auto;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .nav-categorias {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .nav-iconos {
+        margin-left: 0;
     }
     
     .menu-central {
@@ -447,4 +458,3 @@ footer {
         font-size: 2rem;
     }
 }
-
