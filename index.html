@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,39 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/home.css">
 </head>
+
 <body>
-    
-<!-- ===== HEADER ===== -->
-<header class="main-header">
-    <div class="header-container">
-        <a class="Logo" href="index.html">
-            <img src="assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
-            <span class="nombre-logo">NovaWear</span>
-        </a>
 
-        <nav class="nav-categorias">
-            <a href="pages/mujer.html" class="boton-nav">Mujer</a>
-            <a href="pages/hombre.html" class="boton-nav">Hombre</a>
-            <a href="#colecciones-titulo" class="boton-nav">Lo nuevo</a>
-        </nav>
+    <!-- ===== HEADER ===== -->
+    <header class="main-header">
+        <div class="header-container">
+            <a class="Logo" href="index.html">
+                <img src="assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+                <span class="nombre-logo">NovaWear</span>
+            </a>
 
-        <nav class="nav-iconos" aria-label="Herramientas de usuario">
-            <a href="pages/favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="assets/iconos/favoritos.svg" alt=""></a>
-            <a href="pages/carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="assets/iconos/bolsa.svg" alt=""></a>
-            <a href="pages/login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="assets/iconos/cuenta.svg" alt=""></a>
-        </nav>
-    </div>
-</header>
-    
+            <nav class="nav-categorias">
+                <a href="pages/mujer.html" class="boton-nav">Mujer</a>
+                <a href="pages/hombre.html" class="boton-nav">Hombre</a>
+                <a href="#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+            </nav>
+
+            <nav class="nav-iconos" aria-label="Herramientas de usuario">
+                <a href="pages/favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img
+                        src="assets/iconos/favoritos.svg" alt=""></a>
+                <a href="pages/carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img
+                        src="assets/iconos/bolsa.svg" alt=""></a>
+                <a href="pages/login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img
+                        src="assets/iconos/cuenta.svg" alt=""></a>
+            </nav>
+        </div>
+    </header>
+
     <!-- MAIN (requisito de HTML semántico) -->
     <main>
         <!-- HERO con imagen Kendall Jenner -->
@@ -43,126 +49,197 @@
                 <h1>Elegancia Minimalista</h1>
                 <p>Descubre moda atemporal para el estilo de vida moderno</p>
                 <div class="hero-botones">
-                    <button class="hero-btn btn-mujer" onclick="window.location.href='pages/mujer.html'">COMPRAR MUJER</button>
-                    <button class="hero-btn btn-hombre" onclick="window.location.href='pages/hombre.html'">COMPRAR HOMBRE</button>
+                    <button class="hero-btn btn-mujer" onclick="window.location.href='pages/mujer.html'">COMPRAR
+                        MUJER</button>
+                    <button class="hero-btn btn-hombre" onclick="window.location.href='pages/hombre.html'">COMPRAR
+                        HOMBRE</button>
                 </div>
             </div>
         </section>
-        
+
         <!-- COLECCIONES DESTACADAS -->
         <section class="colecciones" aria-labelledby="colecciones-titulo">
             <h2 id="colecciones-titulo">COLECCIONES DESTACADAS</h2>
             <p>Lo más popular de la temporada</p>
-            
+
             <div class="grid-cards">
                 <!-- Producto 1 -->
                 <div class="product-card">
-                    <div class="card-img" style="background-image: url('img/Camiseta estilo polo.jpg')" role="img" aria-label="Camiseta Polo Azul">
-                        <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
-                            <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                        </button>
-                    </div>
-                    <div class="card-info">
-                        <h3>Camiseta Polo Azul</h3>
-                        <span class="precio">$55,999 COP</span>
-                        <button class="btn-agregar-carrito" tabindex="0">AGREGAR AL CARRITO</button>
-                    </div>
+
+                    <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
+                        <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                    </button>
+
+                    <a href="pages/producto.html?id=1" class="product-link">
+
+                        <div class="card-img" style="background-image: url('img/Camiseta estilo polo.jpg')" role="img"
+                            aria-label="Camiseta Polo Azul">
+                        </div>
+
+                        <div class="card-info">
+                            <h3>Camiseta Polo Azul</h3>
+                            <span class="precio">$55,999 COP</span>
+                        </div>
+                    </a>
+
+                    <button class="btn-agregar-carrito" tabindex="0">
+                        AGREGAR AL CARRITO
+                    </button>
                 </div>
+
+
 
                 <!-- Producto 2 -->
                 <div class="product-card">
-                    <div class="card-img" style="background-image: url('img/ChaquetadecueroOversize.jpg')" role="img" aria-label="Chaqueta tipo Bomber Oversize en Cuero">
-                        <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
-                            <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                        </button>
-                    </div>
-                    <div class="card-info">
-                        <h3>Chaqueta tipo Bomber Oversize en Cuero</h3>
-                        <span class="precio">$250,000 COP</span>
-                        <button class="btn-agregar-carrito" tabindex="0">AGREGAR AL CARRITO</button>
-                    </div>
+
+                    <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
+                        <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                    </button>
+
+                    <a href="pages/producto.html?id=2" class="product-link">
+
+                        <div class="card-img" style="background-image: url('img/ChaquetadecueroOversize.jpg')"
+                            role="img" aria-label="Chaqueta tipo Bomber Oversize en Cuero">
+                        </div>
+
+                        <div class="card-info">
+                            <h3>Chaqueta tipo Bomber Oversize en Cuero</h3>
+                            <span class="precio">$250,000 COP</span>
+                        </div>
+                    </a>
+
+                    <button class="btn-agregar-carrito" tabindex="0">
+                        AGREGAR AL CARRITO
+                    </button>
+
                 </div>
 
                 <!-- Producto 3 -->
                 <div class="product-card">
-                    <div class="card-img" style="background-image: url('img/Conjuntonegro.webp')" role="img" aria-label="Traje Sastre Moderno">
-                        <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
-                            <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                        </button>
-                    </div>
-                    <div class="card-info">
-                        <h3>Traje Sastre Moderno (Chaleco + Palazzo)</h3>
-                        <span class="precio">$249,900 COP</span>
-                        <button class="btn-agregar-carrito" tabindex="0">AGREGAR AL CARRITO</button>
-                    </div>
+
+                    <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
+                        <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                    </button>
+
+                    <a href="pages/producto.html?id=3" class="product-link">
+
+                        <div class="card-img" style="background-image: url('img/Conjuntonegro.webp')" role="img"
+                            aria-label="Traje Sastre Moderno">
+                        </div>
+
+                        <div class="card-info">
+                            <h3>Traje Sastre Moderno (Chaleco + Palazzo)</h3>
+                            <span class="precio">$249,900 COP</span>
+                        </div>
+                    </a>
+
+                    <button class="btn-agregar-carrito" tabindex="0">
+                        AGREGAR AL CARRITO
+                    </button>
+
                 </div>
 
                 <!-- Producto 4 -->
                 <div class="product-card">
-                    <div class="card-img" style="background-image: url('img/Gabanbeige.webp')" role="img" aria-label="Gabán Elegante de Paño">
-                        <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
-                            <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                        </button>
-                    </div>
-                    <div class="card-info">
-                        <h3>Gabán Elegante de Paño con Doble Botonadura</h3>
-                        <span class="precio">$190,000 COP</span>
-                        <button class="btn-agregar-carrito" tabindex="0">AGREGAR AL CARRITO</button>
-                    </div>
+
+                    <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
+                        <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                    </button>
+
+                    <a href="pages/producto.html?id=4" class="product-link">
+
+                        <div class="card-img" style="background-image: url('img/Gabanbeige.webp')" role="img"
+                            aria-label="Gabán Elegante de Paño">
+                        </div>
+
+                        <div class="card-info">
+                            <h3>Gabán Elegante de Paño con Doble Botonadura</h3>
+                            <span class="precio">$190,000 COP</span>
+                        </div>
+                    </a>
+
+                    <button class="btn-agregar-carrito" tabindex="0">
+                        AGREGAR AL CARRITO
+                    </button>
+
                 </div>
 
                 <!-- Producto 5 -->
                 <div class="product-card">
-                    <div class="card-img" style="background-image: url('img/Vestidodebroderie.jpg')" role="img" aria-label="Vestido de broderie">
-                        <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
-                            <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                        </button>
-                    </div>
-                    <div class="card-info">
-                        <h3>Vestido de broderie</h3>
-                        <span class="precio">$180,000 COP</span>
-                        <button class="btn-agregar-carrito" tabindex="0">AGREGAR AL CARRITO</button>
-                    </div>
+
+                    <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
+                        <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                    </button>
+
+                    <a href="pages/producto.html?id=5" class="product-link">
+
+                        <div class="card-img" style="background-image: url('img/Vestidodebroderie.jpg')" role="img"
+                            aria-label="Vestido de broderie">
+                        </div>
+
+                        <div class="card-info">
+                            <h3>Vestido de broderie</h3>
+                            <span class="precio">$180,000 COP</span>
+                        </div>
+                    </a>
+
+                    <button class="btn-agregar-carrito" tabindex="0">
+                        AGREGAR AL CARRITO
+                    </button>
+
                 </div>
 
                 <!-- Producto 6 -->
                 <div class="product-card">
-                    <div class="card-img" style="background-image: url('img/Chaqueta Denim.webp')" role="img" aria-label="Chaqueta de Mezclilla Vintage">
-                        <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
-                            <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                        </button>
-                    </div>
-                    <div class="card-info">
-                        <h3>Chaqueta de Mezclilla Vintage con Bolsillos Cargo</h3>
-                        <span class="precio">$149,400 COP</span>
-                        <button class="btn-agregar-carrito" tabindex="0">AGREGAR AL CARRITO</button>
-                    </div>
+
+                    <button class="heart-btn" aria-label="Agregar a favoritos" tabindex="0">
+                        <img src="assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
+                    </button>
+
+                    <a href="pages/producto.html?id=6" class="product-link">
+
+                        <div class="card-img" style="background-image: url('img/Chaqueta Denim.webp')" role="img"
+                            aria-label="Chaqueta de Mezclilla Vintage">
+                        </div>
+
+                        <div class="card-info">
+                            <h3>Chaqueta de Mezclilla Vintage con Bolsillos Cargo</h3>
+                            <span class="precio">$149,400 COP</span>
+                        </div>
+                    </a>
+
+                    <button class="btn-agregar-carrito" tabindex="0">
+                        AGREGAR AL CARRITO
+                    </button>
+
                 </div>
             </div>
         </section>
-        
+
         <!-- SECCIÓN ARIANA Y TOM -->
         <section class="celebridades" aria-label="Colecciones por género">
-            <div class="celebridad-card" style="background-image: url('img/arianamujeres.jpg')" role="img" aria-label="Colección mujer">
+            <div class="celebridad-card" style="background-image: url('img/arianamujeres.jpg')" role="img"
+                aria-label="Colección mujer">
                 <div class="celebridad-contenido">
                     <h3>MUJER</h3>
                     <a class="btn-explorar" href="pages/mujer.html" tabindex="0">EXPLORAR COLECCIÓN</a>
                 </div>
             </div>
-            
-            <div class="celebridad-card" style="background-image: url('img/tomhombre.jpg')" role="img" aria-label="Colección hombre">
+
+            <div class="celebridad-card" style="background-image: url('img/tomhombre.jpg')" role="img"
+                aria-label="Colección hombre">
                 <div class="celebridad-contenido">
                     <h3>HOMBRE</h3>
                     <a class="btn-explorar" href="pages/hombre.html" tabindex="0">EXPLORAR COLECCIÓN</a>
                 </div>
             </div>
         </section>
-        
+
         <!-- SECCIÓN SUSCRIPCIÓN -->
         <section class="suscripcion" aria-labelledby="suscripcion-titulo">
             <h2 id="suscripcion-titulo">MANTENETE ACTUALIZADO</h2>
             <p>Suscríbete para recibir las últimas novedades y ofertas exclusivas</p>
-            
+
             <div class="suscripcion-form">
                 <label for="email-input" class="visually-hidden">Correo electrónico</label>
                 <input type="email" id="email-input" placeholder="Ingresa tu correo electrónico" tabindex="0">
@@ -170,7 +247,7 @@
             </div>
         </section>
     </main>
-    
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -178,7 +255,7 @@
                 <h4>NOVAWEAR</h4>
                 <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
             </div>
-            
+
             <div class="footer-col">
                 <h4>COMPRAS</h4>
                 <ul>
@@ -188,7 +265,7 @@
                     <li><a href="#" tabindex="0">Ofertas</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-col">
                 <h4>AYUDA</h4>
                 <ul>
@@ -198,7 +275,7 @@
                     <li><a href="#" tabindex="0">Contacto</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-col">
                 <h4>SÍGUENOS</h4>
                 <ul>
@@ -209,10 +286,12 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="copyright">
             <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
+<script src="js/home.js"></script>
+
 </html>
