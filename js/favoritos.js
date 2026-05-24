@@ -15,14 +15,36 @@ function guardarFavoritos(favoritos) {
     actualizarContadorFavoritos();
 }
 
-// Agregar un producto a favoritos
+// Función para normalizar la ruta de la imagen (NUEVA)
+function normalizarRutaImagen(ruta) {
+    // Si la ruta ya tiene ../img/ o ../assets/, está bien
+    if (ruta.startsWith('../img/') || ruta.startsWith('../assets/')) {
+        return ruta;
+    }
+    // Si la ruta es img/... (desde index), agregar ../
+    if (ruta.startsWith('img/')) {
+        return '../' + ruta;
+    }
+    // Si la ruta es assets/...
+    if (ruta.startsWith('assets/')) {
+        return '../' + ruta;
+    }
+    return ruta;
+}
+
+// Agregar un producto a favoritos (MODIFICADA)
 function agregarAFavoritos(producto) {
     const favoritos = obtenerFavoritos();
     
     // Verificar si ya existe
     const existe = favoritos.some(p => p.id === producto.id);
     if (!existe) {
-        favoritos.push(producto);
+        // Normalizar la ruta de la imagen antes de guardar
+        const productoNormalizado = {
+            ...producto,
+            imagen: normalizarRutaImagen(producto.imagen)
+        };
+        favoritos.push(productoNormalizado);
         guardarFavoritos(favoritos);
         return true;
     }
@@ -149,37 +171,3 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarContadorFavoritos();
     sincronizarCorazones();
 });
-// Función para normalizar la ruta de la imagen (arreglar rutas para favoritos)
-function normalizarRutaImagen(ruta) {
-    // Si la ruta ya tiene ../img/ o comienza con /, está bien
-    if (ruta.startsWith('../img/') || ruta.startsWith('/img/')) {
-        return ruta;
-    }
-    // Si la ruta es img/... (desde index), agregar ../
-    if (ruta.startsWith('img/')) {
-        return '../' + ruta;
-    }
-    // Si la ruta es ../assets/... o assets/...
-    if (ruta.includes('assets/')) {
-        return ruta;
-    }
-    return ruta;
-}
-
-// Modificar la función agregarAFavoritos para normalizar la ruta
-function agregarAFavoritos(producto) {
-    const favoritos = obtenerFavoritos();
-    const existe = favoritos.some(p => p.id === producto.id);
-    
-    if (!existe) {
-        // Normalizar la ruta de la imagen antes de guardar
-        const productoNormalizado = {
-            ...producto,
-            imagen: normalizarRutaImagen(producto.imagen)
-        };
-        favoritos.push(productoNormalizado);
-        guardarFavoritos(favoritos);
-        return true;
-    }
-    return false;
-}
