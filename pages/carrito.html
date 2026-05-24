@@ -4,44 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaWear - Mi Carrito</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="../css/carrito.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- HEADER (VERSIÓN DE TU AMIGA - IGUAL AL DE PAGO) -->
     <header class="main-header">
-    <div class="header-container">
-        <a class="Logo" href="../index.html">
-            <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
-            <span class="nombre-logo">NovaWear</span>
-        </a>
-
-        <nav class="nav-categorias">
-            <a href="mujer.html" class="boton-nav">Mujer</a>
-            <a href="hombre.html" class="boton-nav">Hombre</a>
-            <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
-        </nav>
-
-        <nav class="nav-iconos" aria-label="Herramientas de usuario">
-            <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
-                <img src="../assets/iconos/favoritos.svg" alt="">
-                <span class="badge-favoritos" style="display: none;"></span>
+        <div class="header-container">
+            <a class="Logo" href="home.html">
+                <img src="../assets/iconos/logo.svg" alt="Logo de la empresa">
+                <span class="nombre-logo">NovaWear</span>
             </a>
-            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
-                <img src="../assets/iconos/bolsa.svg" alt="">
-            </a>
-            <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
-                <img src="../assets/iconos/cuenta.svg" alt="">
-            </a>
-        </nav>
-    </div>
-</header>
 
-    <!-- MAIN con CARRITO LLENO (sin JavaScript) -->
+            <div class="nav-categorias">
+                <a class="boton-nav" href="#">Mujer</a>
+                <a class="boton-nav" href="#">Hombre</a>
+                <a class="boton-nav" href="#">Lo Nuevo</a>
+            </div>
+
+            <div class="nav-iconos">
+                <a class="boton-icon icono-con-badge" href="favoritos.html">
+                    <img src="../assets/iconos/favoritos.svg" alt="Favoritos">
+                    <span class="badge-favoritos">4</span>
+                </a>
+                <a class="boton-icon icono-con-badge" href="carrito.html">
+                    <img src="../assets/iconos/bolsa.svg" alt="Carrito">
+                    <span class="badge" id="cart-badge">3</span>
+                </a>
+                <a class="boton-icon" href="#">
+                    <img src="../assets/iconos/cuenta.svg" alt="Usuario">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN con CARRITO -->
     <main>
         <section class="carrito-contenido" aria-labelledby="carrito-titulo">
             <h1 id="carrito-titulo">MI CARRITO</h1>
@@ -106,7 +103,7 @@
                     </div>
                 </div>
 
-                <!-- Resumen de compra (Order Summary) -->
+                <!-- Resumen de compra -->
                 <aside class="order-summary" aria-label="Resumen de compra">
                     <h3>RESUMEN DE COMPRA</h3>
                     
@@ -135,15 +132,15 @@
                     </div>
 
                     <div class="carrito-botones">
-                        <a class="btn-volver" href="../index.html"tabindex="0">← SEGUIR COMPRANDO</a>
-                        <a class="btn-proceder" href="pago.html" tabindex="0">PROCEDER AL PAGO</a>
+                        <button class="btn-volver" tabindex="0">← SEGUIR COMPRANDO</button>
+                        <button class="btn-proceder" tabindex="0">PROCEDER AL PAGO</button>
                     </div>
                 </aside>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (igual al de pago) -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -186,8 +183,8 @@
             <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
         </div>
     </footer>
-<script src="../js/favoritos.js"></script>
+
+    <!-- JavaScript del carrito (TU versión, no cambia) -->
+    <script src="../js/carrito.js"></script>
 </body>
 </html>
-
-
