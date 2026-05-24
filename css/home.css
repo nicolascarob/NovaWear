@@ -26,7 +26,7 @@ body {
 .main-header {
     background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
-    padding: 0 0px;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -115,6 +115,26 @@ body {
 .boton-nav:hover {
     background-color: #000000;
     color: #ffffff;
+}
+
+/* Badge para favoritos en el header */
+.badge-favoritos {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
 }
 
 /* ===== HERO KENDALL ===== */
@@ -220,6 +240,7 @@ body {
     position: relative;
 }
 
+/* Botón de corazón corregido */
 .heart-btn {
     position: absolute;
     top: 15px;
@@ -249,6 +270,16 @@ body {
     width: 22px;
     height: 22px;
     display: block;
+    pointer-events: none;
+}
+
+/* Estado like - fondo negro y corazón rojo (exactamente igual que mujer) */
+.heart-btn.liked {
+    background-color: black;
+}
+
+.heart-btn.liked .heart-icon {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff4d4d"%3E%3Cpath d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"%3E%3C/path%3E%3C/svg%3E');
 }
 
 .product-link {
