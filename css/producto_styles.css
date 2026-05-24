@@ -51,7 +51,26 @@ body {
     color: #000000;
 }
 
-/* Cuadro que encierra las categorias */
+/* Badge favoritos */
+.badge-favoritos {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+}
+
 .nav-categorias {
     display: flex;
     gap: 32px;
@@ -59,7 +78,6 @@ body {
     justify-content: center;
 }
 
-/* Botones de navegacion */
 .boton-nav {
     display: flex;
     justify-content: center;
@@ -69,15 +87,12 @@ body {
     font-size: 16px;
     min-width: 86px;
     height: 30px;
-    padding: auto;
-    gap: 10px;
     border: 2px solid #000000;
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
-/* Iconos */
 .nav-iconos {
     display: flex;
     gap: 20px;
@@ -89,7 +104,6 @@ body {
     width: 28px;
     height: 28px;
     text-decoration: none;
-    color: #000000;
     transition: transform 0.2s ease;
 }
 
@@ -221,11 +235,11 @@ hr {
     cursor: pointer;
     transition: 0.3s;
     border-radius: 50%;
-    text-decoration: none;
 }
 
 .fav-btn img {
     width: 22px;
+    pointer-events: none;
 }
 
 .fav-btn:hover {
@@ -234,6 +248,15 @@ hr {
 
 .fav-btn:hover img {
     filter: invert(1);
+}
+
+/* Estado like para el botón favorito del producto */
+.fav-btn.liked {
+    background-color: black;
+}
+
+.fav-btn.liked img {
+    filter: invert(27%) sepia(93%) saturate(3000%) hue-rotate(350deg) brightness(1) contrast(1);
 }
 
 .add-cart {
@@ -274,7 +297,7 @@ hr {
     font-size: 24px;
 }
 
-/* ===== GRID DE PRODUCTOS (igual al index/mujer/hombre) ===== */
+/* ===== GRID DE PRODUCTOS RECOMENDADOS ===== */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -333,7 +356,6 @@ hr {
     pointer-events: none;
 }
 
-/* Estado like */
 .heart-btn.liked {
     background-color: black;
 }
