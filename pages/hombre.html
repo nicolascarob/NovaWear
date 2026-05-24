@@ -29,7 +29,10 @@
         </nav>
 
         <nav class="nav-iconos" aria-label="Herramientas de usuario">
-            <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
+            <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
+                <img src="../assets/iconos/favoritos.svg" alt="">
+                <span class="badge-favoritos" style="display: none;"></span>
+            </a>
             <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
             <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
         </nav>
@@ -102,9 +105,9 @@
         <!-- GRID DE PRODUCTOS -->
         <div class="grid-cards">
             <!-- Producto 1 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="201">
                 <div class="card-img" style="background-image: url('../img/camiseta_verde_oliva.jpg')" role="img" aria-label="Camiseta verde oliva">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:201, nombre:'Camiseta verde oliva', precio:'$50,000 COP', imagen:'../img/camiseta_verde_oliva.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -116,9 +119,9 @@
             </div>
 
             <!-- Producto 2 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="202">
                 <div class="card-img" style="background-image: url('../img/saco_gris.jpg')" role="img" aria-label="Saco gris">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:202, nombre:'Saco gris', precio:'$159,000 COP', imagen:'../img/saco_gris.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -130,9 +133,9 @@
             </div>
 
             <!-- Producto 3 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="203">
                 <div class="card-img" style="background-image: url('../img/chaqueta_negra_h.jpg')" role="img" aria-label="Chaqueta negra">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:203, nombre:'Chaqueta negra', precio:'$319,000 COP', imagen:'../img/chaqueta_negra_h.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -144,9 +147,9 @@
             </div>
 
             <!-- Producto 4 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="204">
                 <div class="card-img" style="background-image: url('../img/saco_tejido.jpg')" role="img" aria-label="Saco tejido">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:204, nombre:'Saco tejido', precio:'$199,000 COP', imagen:'../img/saco_tejido.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -158,9 +161,9 @@
             </div>
 
             <!-- Producto 5 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="205">
                 <div class="card-img" style="background-image: url('../img/camiseta_blanca.jpg')" role="img" aria-label="Camiseta blanca">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:205, nombre:'Camiseta blanca', precio:'$50,000 COP', imagen:'../img/camiseta_blanca.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -172,9 +175,9 @@
             </div>
 
             <!-- Producto 6 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="206">
                 <div class="card-img" style="background-image: url('../img/gaban_negro.jpg')" role="img" aria-label="Gaban negro">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:206, nombre:'Gabán negro', precio:'$129,000 COP', imagen:'../img/gaban_negro.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -186,9 +189,9 @@
             </div>
 
             <!-- Producto 7 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="207">
                 <div class="card-img" style="background-image: url('../img/camiseta_vinotinto.jpg')" role="img" aria-label="Camiseta vinotinto">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:207, nombre:'Camiseta vinotinto', precio:'$90,000 COP', imagen:'../img/camiseta_vinotinto.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -200,9 +203,9 @@
             </div>
 
             <!-- Producto 8 -->
-            <div class="product-card">
+            <div class="product-card" data-product-id="208">
                 <div class="card-img" style="background-image: url('../img/chaqueta_jean.jpg')" role="img" aria-label="Chaqueta de jean">
-                    <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
+                    <button class="heart-btn" onclick="handleFavorito(this, {id:208, nombre:'Chaqueta de jean', precio:'$175,000 COP', imagen:'../img/chaqueta_jean.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
                         <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
                     </button>
                 </div>
@@ -260,16 +263,22 @@
     </div>
 </footer>
 
+<script src="../js/favoritos.js"></script>
 <script>
-function toggleLike(btn) {
-    btn.classList.toggle("liked");
-    var estado = btn.classList.contains("liked");
-    btn.setAttribute("aria-pressed", estado);
+function handleFavorito(btn, producto) {
+    toggleFavorito(btn, producto);
 }
 
 // Mostrar alerta al aplicar filtros
 document.querySelector('.btn-aplicar-filtros')?.addEventListener('click', function() {
     alert('Filtros aplicados');
+});
+
+// Mensaje demo para botones de agregar al carrito
+document.querySelectorAll('.btn-agregar-carrito').forEach(btn => {
+    btn.addEventListener('click', function() {
+        alert('Producto agregado al carrito');
+    });
 });
 </script>
 
