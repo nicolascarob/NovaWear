@@ -14,25 +14,32 @@
 <body>
     <!-- HEADER -->
     <header class="main-header">
-        <div class="header-container">
-            <a class="Logo" href="../index.html">
-                <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
-                <span class="nombre-logo">NovaWear</span>
+    <div class="header-container">
+        <a class="Logo" href="../index.html">
+            <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+            <span class="nombre-logo">NovaWear</span>
+        </a>
+
+        <nav class="nav-categorias">
+            <a href="mujer.html" class="boton-nav">Mujer</a>
+            <a href="hombre.html" class="boton-nav">Hombre</a>
+            <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+        </nav>
+
+        <nav class="nav-iconos" aria-label="Herramientas de usuario">
+            <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
+                <img src="../assets/iconos/favoritos.svg" alt="">
+                <span class="badge-favoritos" style="display: none;"></span>
             </a>
-
-            <nav class="nav-categorias">
-                <a href="mujer.html" class="boton-nav">Mujer</a>
-                <a href="hombre.html" class="boton-nav">Hombre</a>
-                <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
-            </nav>
-
-            <nav class="nav-iconos" aria-label="Herramientas de usuario">
-                <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
-                <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
-                <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
-            </nav>
-        </div>
-    </header>
+            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
+                <img src="../assets/iconos/bolsa.svg" alt="">
+            </a>
+            <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
+                <img src="../assets/iconos/cuenta.svg" alt="">
+            </a>
+        </nav>
+    </div>
+</header>
 
     <!-- MAIN con CARRITO LLENO (sin JavaScript) -->
     <main>
@@ -179,7 +186,8 @@
             <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
         </div>
     </footer>
-
+<script src="../js/favoritos.js"></script>
 </body>
 </html>
+
 
