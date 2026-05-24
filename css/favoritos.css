@@ -2,11 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     min-height: 100vh;
     display: flex;
@@ -17,7 +16,7 @@ body {
 .main-header {
     background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
-    padding: 0 0px;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -55,7 +54,6 @@ body {
     color: #000000;
 }
 
-/* Cuadro que encierra las categorias (Mujer, Hombre, Lo nuevo) */
 .nav-categorias {
     display: flex;
     gap: 32px;
@@ -63,7 +61,6 @@ body {
     justify-content: center;
 }
 
-/* Para botones de navegacion (Mujer, Hombre, Lo nuevo) */
 .boton-nav {
     display: flex;
     justify-content: center;
@@ -73,28 +70,23 @@ body {
     font-size: 16px;
     min-width: 86px;
     height: 30px;
-    padding: auto;
-    gap: 10px;
     border: 2px solid #000000;
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
-/* Cuadro que encierra los iconos (Favoritos, Bolsa, Usuario) */
 .nav-iconos {
     display: flex;
     gap: 20px;
     margin-left: auto;
 }
 
-/* Para botones de iconos (Favoritos, Bolsa, Usuario) */
 .boton-icon {
     display: flex;
     width: 28px;
     height: 28px;
     text-decoration: none;
-    color: #000000;
     transition: transform 0.2s ease;
 }
 
@@ -102,19 +94,19 @@ body {
     transform: scale(1.1);
 }
 
-/* Hovering al poner el mouse oscurece las opciones del nav */
 .boton-nav:hover {
     background-color: #000000;
     color: #ffffff;
 }
 
-.badge {
+/* Badge para favoritos */
+.badge-favoritos {
     position: absolute;
     top: -8px;
     right: -12px;
     background-color: #ff4d4d;
     color: white;
-    font-size: 0.7rem;
+    font-size: 11px;
     font-weight: bold;
     min-width: 18px;
     height: 18px;
@@ -124,9 +116,10 @@ body {
     justify-content: center;
     padding: 0 4px;
     pointer-events: none;
+    font-family: Arial, sans-serif;
 }
 
-/* ===== SECCIÓN CON FAVORITOS ===== */
+/* ===== SECCIÓN FAVORITOS ===== */
 .favoritos-contenido {
     flex: 1;
     padding: 60px 5%;
@@ -144,29 +137,30 @@ body {
     font-size: 1.1rem;
 }
 
+/* Grid de favoritos - MISMO ESTILO QUE MUJER */
 .grid-favoritos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.favorito-card {
+/* Tarjeta de producto - IGUAL QUE EN MUJER */
+.product-card {
     background: white;
+    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s;
     position: relative;
-    border-radius: 12px;
-    overflow: hidden;
 }
 
-.favorito-card:hover {
-    transform: translateY(-5px);
+.product-card:hover {
+    transform: translateY(-10px);
 }
 
-.favorito-img {
-    height: 350px;
+.card-img {
+    height: 400px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -178,7 +172,7 @@ body {
     right: 15px;
     width: 40px;
     height: 40px;
-    background-color: black;
+    background-color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -190,9 +184,19 @@ body {
     z-index: 2;
 }
 
-.heart-red {
-    font-size: 1.3rem;
-    color: #ff4d4d;
+.heart-btn.liked {
+    background-color: black;
+}
+
+.heart-btn.liked .heart-icon {
+    content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff4d4d"%3E%3Cpath d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"%3E%3C/path%3E%3C/svg%3E');
+}
+
+.heart-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    pointer-events: none;
 }
 
 .heart-btn:hover,
@@ -200,51 +204,79 @@ body {
     transform: scale(1.1);
     outline: 2px solid #ff4d4d;
     outline-offset: 2px;
-    background-color: #333;
 }
 
-.favorito-info {
+.card-info {
     padding: 15px;
     text-align: left;
 }
 
-.favorito-info h3 {
+.card-info h3 {
     margin-bottom: 8px;
     font-size: 1.1rem;
 }
 
-.favorito-info .precio {
+.card-info .precio {
     font-weight: bold;
     color: #333;
     font-size: 1.2rem;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.btn-remover {
-    background-color: transparent;
-    color: #999;
-    border: 1px solid #ddd;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 0.9rem;
+.btn-agregar-carrito {
     width: 100%;
-    border-radius: 30px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
 }
 
-.btn-remover:hover,
-.btn-remover:focus {
-    background-color: #ff4d4d;
-    color: white;
-    border-color: #ff4d4d;
+.btn-agregar-carrito:hover,
+.btn-agregar-carrito:focus {
+    background-color: #333;
+    transform: translateY(-2px);
     outline: 2px solid #ff4d4d;
     outline-offset: 2px;
 }
 
+/* Mensaje cuando no hay favoritos */
+.vacio-mensaje {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.vacio-mensaje p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-explorar {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-explorar:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
 /* ===== FOOTER ===== */
 footer {
-    background-color: #1a1a1a;
+    background: #1a1a1a;
     color: white;
     padding: 50px 5% 20px;
     margin-top: auto;
@@ -254,11 +286,10 @@ footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    margin-bottom: 40px;
 }
 
 .footer-col h4 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 1.2rem;
 }
 
@@ -276,30 +307,48 @@ footer {
     transition: color 0.3s;
 }
 
-.footer-col a:hover,
-.footer-col a:focus {
+.footer-col a:hover {
     color: white;
-    outline: 2px solid #ff4d4d;
-    outline-offset: 2px;
 }
 
 .copyright {
     text-align: center;
-    padding-top: 30px;
+    margin-top: 30px;
     border-top: 1px solid #333;
+    padding-top: 20px;
     color: #666;
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 20px;
+@media (max-width: 1024px) {
+    .grid-favoritos {
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .menu-central {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .nav-categorias {
         flex-wrap: wrap;
-        justify-content: center;
+        gap: 15px;
+    }
+    
+    .nav-iconos {
+        margin-left: 0;
+    }
+    
+    .grid-favoritos {
+        grid-template-columns: 1fr;
     }
     
     .footer-grid {
@@ -309,9 +358,5 @@ footer {
     
     .favoritos-contenido h1 {
         font-size: 2rem;
-    }
-    
-    .grid-favoritos {
-        grid-template-columns: 1fr;
     }
 }
