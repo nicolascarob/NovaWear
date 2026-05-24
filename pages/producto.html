@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaWear - Tienda de Moda</title>
+    <title>NovaWear - Producto</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER CON BADGE ===== -->
 <header class="main-header">
     <div class="header-container">
         <a class="Logo" href="../index.html">
@@ -29,33 +29,40 @@
         </nav>
 
         <nav class="nav-iconos" aria-label="Herramientas de usuario">
-            <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
-            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
-            <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
+            <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
+                <img src="../assets/iconos/favoritos.svg" alt="">
+                <span class="badge-favoritos" style="display: none;"></span>
+            </a>
+            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
+                <img src="../assets/iconos/bolsa.svg" alt="">
+            </a>
+            <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
+                <img src="../assets/iconos/cuenta.svg" alt="">
+            </a>
         </nav>
     </div>
 </header>
 
 <!-- ===== MAIN ===== -->
 <main class="producto">
-      <div class="producto-container">
+    <div class="producto-container">
         <div class="producto-img">
             <img src="../img/gaban_beige.png" alt="Gaban beige">
         </div>
 
         <!-- Info -->
         <div class="producto-info">
-            <h1>Gaban beige minimalista</h1>
-            <p class="precio">$289.000</p>
+            <h1>Gabán beige minimalista</h1>
+            <p class="precio">$289,000 COP</p>
 
             <hr>
 
             <p class="descripcion">
                 Un abrigo beige atemporal confeccionado con una mezcla de lana de primera calidad. 
-        Presenta un corte holgado y un diseño minimalista para una elegancia natural.
+                Presenta un corte holgado y un diseño minimalista para una elegancia natural.
             </p>
 
-         <div class="tallas">
+            <div class="tallas">
                 <p>Seleccionar talla</p>
                 <div class="tallas-opciones" role="group" aria-label="Seleccionar talla">
                     <button aria-pressed="false">XS</button>
@@ -66,97 +73,44 @@
                 </div>
             </div>
 
-        <div class="cantidad">
+            <div class="cantidad">
                 <p>Cantidad</p>
                 <select>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </select>
             </div>
-             <!-- Botones -->
-            <div class="acciones">
-            <a href="../pages/favoritos.html" class="fav-btn" aria-label="Agregar a favoritos">
-            <img src="../assets/iconos/favoritos.svg" alt="">
-             </a>
 
-             <a href="../pages/carrito.html" class="add-cart">
-             <img src="../assets/iconos/bolsa.svg" alt="">
-            Añadir al carrito
-             </a>
+            <!-- Botones -->
+            <div class="acciones">
+                <button class="fav-btn" onclick="handleFavoritoProducto(this)" aria-label="Agregar a favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="">
+                </button>
+
+                <a href="carrito.html" class="add-cart">
+                    <img src="../assets/iconos/bolsa.svg" alt="">
+                    Añadir al carrito
+                </a>
             </div>
         </div>
-
     </div>
-    <hr>
-        <h2>También te puede gustar</h2>
-
-
-    <!-- GRID DE PRODUCTOS -->
-    <div class="grid-cards">
-
-        <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/chaqueta_negra_oversize.jpg" alt="Chaqueta negra oversize">
-             
-
-              <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
-                     <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-
-            <p class="name">Chaqueta negra oversize</p>
-            <p class="price">$249.000</p>
-        </div>
-
-         <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/camisa_lana.jpeg" alt="Camisa de lana">
-
-             <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
-                     <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-           
-            <p class="name">Camisa de lana</p>
-            <p class="price">$75.000</p>
-        </div>
-
-        <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/chaqueta_cafe.jpg" alt="Chaqueta café de cuero">
-
-             <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">       
-             <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-           
-            <p class="name">Chaqueta café de cuero</p>
-            <p class="price">$300.000</p>
-        </div>
-
-        <div class="card" tabindex="0">
-           <div class="img-container">
-             <img src="../img/saco_blanco.jpg" alt="Saco de lana blanco">
-
-             <button class="heart-btn" onclick="toggleLike(this)" aria-pressed="false" aria-label="Agregar a favoritos">
-                     <img src="../assets/iconos/favoritos.svg" alt="Like" class="heart-icon">
-              </button>
-              </div>
-           
-            <p class="name">Saco de lana blanco</p>
-            <p class="price">$199.000</p>
-        </div>
-
-    </div>
-
     
+    <hr class="separador">
+    
+    <h2 class="recomendados-titulo">También te puede gustar</h2>
+
+    <!-- GRID DE PRODUCTOS RECOMENDADOS -->
+    <div class="grid-cards" id="recomendados-grid">
+        <!-- Los productos se renderizan con JavaScript -->
+    </div>
 </main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="footer-grid">
-
         <div class="footer-col">
             <h4>NOVAWEAR</h4>
             <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
@@ -191,40 +145,64 @@
                 <li><a href="#">Pinterest</a></li>
             </ul>
         </div>
-
     </div>
 
     <div class="copyright">
         <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
     </div>
 </footer>
-</body>
 
+<script src="../js/favoritos.js"></script>
 <script src="../js/producto.js"></script>
 
 <script>
-function toggleLike(btn) {
-    btn.classList.toggle("liked");
-
-    let estado = btn.classList.contains("liked");
-    btn.setAttribute("aria-pressed", estado);
+// Función para el botón de favoritos del producto actual
+function handleFavoritoProducto(btn) {
+    const productoActual = {
+        id: parseInt(currentProductId),
+        nombre: document.querySelector('.producto-info h1').textContent,
+        precio: document.querySelector('.producto-info .precio').textContent,
+        imagen: document.querySelector('.producto-img img').src
+    };
+    
+    if (btn.classList.contains('liked')) {
+        btn.classList.remove('liked');
+        btn.setAttribute('aria-pressed', 'false');
+        eliminarDeFavoritos(productoActual.id);
+    } else {
+        btn.classList.add('liked');
+        btn.setAttribute('aria-pressed', 'true');
+        agregarAFavoritos(productoActual);
+    }
 }
-</script>
-<script>
-const tallas = document.querySelectorAll(".tallas-opciones button");
 
-tallas.forEach(btn => {
-    btn.addEventListener("click", () => {
-        tallas.forEach(b => {
-            b.classList.remove("active");
-            b.setAttribute("aria-pressed", "false");
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
+    actualizarContadorFavoritos();
+    
+    // Verificar si el producto actual está en favoritos
+    if (esFavorito(parseInt(currentProductId))) {
+        const favBtn = document.querySelector('.fav-btn');
+        if (favBtn) {
+            favBtn.classList.add('liked');
+            favBtn.setAttribute('aria-pressed', 'true');
+        }
+    }
+    
+    // Tallas
+    const tallas = document.querySelectorAll(".tallas-opciones button");
+    tallas.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tallas.forEach(b => {
+                b.classList.remove("active");
+                b.setAttribute("aria-pressed", "false");
+            });
+            btn.classList.add("active");
+            btn.setAttribute("aria-pressed", "true");
         });
-
-        btn.classList.add("active");
-        btn.setAttribute("aria-pressed", "true");
     });
 });
 </script>
 
+</body>
 </html>
-
