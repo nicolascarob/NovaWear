@@ -200,6 +200,42 @@ body {
     color: black;
 }
 
+/* Botón limpiar filtros */
+.btn-limpiar-filtros {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s;
+    border-radius: 8px;
+}
+
+.btn-limpiar-filtros:hover,
+.btn-limpiar-filtros:focus {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    outline: 2px solid #ff4d4d;
+    outline-offset: 2px;
+}
+
+/* Mensaje cuando no hay resultados */
+.no-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.no-resultados p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
 .tallas-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
