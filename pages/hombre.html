@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaWear - Hombre</title>
     
-    <!-- FUENTES DE GOOGLE FONTS (IGUAL AL INDEX) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
@@ -14,11 +13,10 @@
 </head>
 <body>
 
-<!-- ===== HEADER (EXACTAMENTE IGUAL AL INDEX) ===== -->
 <header class="main-header">
     <div class="header-container">
         <a class="Logo" href="../index.html">
-            <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+            <img src="../assets/iconos/logo.svg" alt="Logo NovaWear">
             <span class="nombre-logo">NovaWear</span>
         </a>
 
@@ -39,194 +37,56 @@
     </div>
 </header>
 
-<!-- ===== MAIN ===== -->
 <main class="coleccion-hombre">
-
     <div class="contenedor-hombre">
-        <!-- SECCIÓN FILTROS FIJA CON SCROLL -->
         <aside class="filtros-lateral" aria-label="Filtros de productos">
             <h2>Filtros</h2>
-            
             <div class="filtros-scroll">
                 <div class="filtro-grupo">
                     <h3>Categoría</h3>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Camisetas
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Chaquetas
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Pantalones
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Camisas
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Sacos
-                    </label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="categoria" value="camisetas"> Camisetas</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="categoria" value="chaquetas"> Chaquetas</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="categoria" value="pantalones"> Pantalones</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="categoria" value="camisas"> Camisas</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="categoria" value="sacos"> Sacos</label>
                 </div>
 
                 <div class="filtro-grupo">
                     <h3>Talla</h3>
                     <div class="tallas-grid">
-                        <label class="filtro-checkbox"><input type="checkbox"> S</label>
-                        <label class="filtro-checkbox"><input type="checkbox"> M</label>
-                        <label class="filtro-checkbox"><input type="checkbox"> L</label>
-                        <label class="filtro-checkbox"><input type="checkbox"> XL</label>
-                        <label class="filtro-checkbox"><input type="checkbox"> XXL</label>
+                        <label class="filtro-checkbox"><input type="checkbox" data-filter="talla" value="S"> S</label>
+                        <label class="filtro-checkbox"><input type="checkbox" data-filter="talla" value="M"> M</label>
+                        <label class="filtro-checkbox"><input type="checkbox" data-filter="talla" value="L"> L</label>
+                        <label class="filtro-checkbox"><input type="checkbox" data-filter="talla" value="XL"> XL</label>
+                        <label class="filtro-checkbox"><input type="checkbox" data-filter="talla" value="XXL"> XXL</label>
                     </div>
                 </div>
 
                 <div class="filtro-grupo">
                     <h3>Precio</h3>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Menos de $50.000
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> $50.000 - $100.000
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> $100.000 - $150.000
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> $150.000 - $200.000
-                    </label>
-                    <label class="filtro-checkbox">
-                        <input type="checkbox"> Más de $200.000
-                    </label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="precio" value="0-50000"> Menos de $50.000</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="precio" value="50000-100000"> $50.000 - $100.000</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="precio" value="100000-150000"> $100.000 - $150.000</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="precio" value="150000-200000"> $150.000 - $200.000</label>
+                    <label class="filtro-checkbox"><input type="checkbox" data-filter="precio" value="200000+"> Más de $200.000</label>
                 </div>
             </div>
-
-            <!-- BOTÓN APLICAR FILTROS -->
-            <button class="btn-aplicar-filtros">APLICAR FILTROS</button>
+            <button class="btn-aplicar-filtros" id="aplicarFiltrosBtn">APLICAR FILTROS</button>
+            <button class="btn-limpiar-filtros" id="limpiarFiltrosBtn">LIMPIAR FILTROS</button>
         </aside>
 
-        <!-- GRID DE PRODUCTOS -->
-        <div class="grid-cards">
-            <!-- Producto 1 -->
-            <div class="product-card" data-product-id="201">
-                <div class="card-img" style="background-image: url('../img/camiseta_verde_oliva.jpg')" role="img" aria-label="Camiseta verde oliva">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:201, nombre:'Camiseta verde oliva', precio:'$50,000 COP', imagen:'../img/camiseta_verde_oliva.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Camiseta verde oliva</h3>
-                    <span class="precio">$50,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 2 -->
-            <div class="product-card" data-product-id="202">
-                <div class="card-img" style="background-image: url('../img/saco_gris.jpg')" role="img" aria-label="Saco gris">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:202, nombre:'Saco gris', precio:'$159,000 COP', imagen:'../img/saco_gris.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Saco gris</h3>
-                    <span class="precio">$159,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 3 -->
-            <div class="product-card" data-product-id="203">
-                <div class="card-img" style="background-image: url('../img/chaqueta_negra_h.jpg')" role="img" aria-label="Chaqueta negra">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:203, nombre:'Chaqueta negra', precio:'$319,000 COP', imagen:'../img/chaqueta_negra_h.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Chaqueta negra</h3>
-                    <span class="precio">$319,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 4 -->
-            <div class="product-card" data-product-id="204">
-                <div class="card-img" style="background-image: url('../img/saco_tejido.jpg')" role="img" aria-label="Saco tejido">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:204, nombre:'Saco tejido', precio:'$199,000 COP', imagen:'../img/saco_tejido.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Saco tejido</h3>
-                    <span class="precio">$199,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 5 -->
-            <div class="product-card" data-product-id="205">
-                <div class="card-img" style="background-image: url('../img/camiseta_blanca.jpg')" role="img" aria-label="Camiseta blanca">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:205, nombre:'Camiseta blanca', precio:'$50,000 COP', imagen:'../img/camiseta_blanca.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Camiseta blanca</h3>
-                    <span class="precio">$50,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 6 -->
-            <div class="product-card" data-product-id="206">
-                <div class="card-img" style="background-image: url('../img/gaban_negro.jpg')" role="img" aria-label="Gaban negro">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:206, nombre:'Gabán negro', precio:'$129,000 COP', imagen:'../img/gaban_negro.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Gabán negro</h3>
-                    <span class="precio">$129,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 7 -->
-            <div class="product-card" data-product-id="207">
-                <div class="card-img" style="background-image: url('../img/camiseta_vinotinto.jpg')" role="img" aria-label="Camiseta vinotinto">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:207, nombre:'Camiseta vinotinto', precio:'$90,000 COP', imagen:'../img/camiseta_vinotinto.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Camiseta vinotinto</h3>
-                    <span class="precio">$90,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
-
-            <!-- Producto 8 -->
-            <div class="product-card" data-product-id="208">
-                <div class="card-img" style="background-image: url('../img/chaqueta_jean.jpg')" role="img" aria-label="Chaqueta de jean">
-                    <button class="heart-btn" onclick="handleFavorito(this, {id:208, nombre:'Chaqueta de jean', precio:'$175,000 COP', imagen:'../img/chaqueta_jean.jpg'})" aria-pressed="false" aria-label="Agregar a favoritos">
-                        <img src="../assets/iconos/favoritos.svg" alt="Agregar a favoritos" class="heart-icon">
-                    </button>
-                </div>
-                <div class="card-info">
-                    <h3>Chaqueta de jean</h3>
-                    <span class="precio">$175,000 COP</span>
-                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
-                </div>
-            </div>
+        <div class="grid-cards" id="productosGrid">
+            <!-- Los productos se cargarán con JavaScript -->
         </div>
     </div>
 </main>
 
-<!-- ===== FOOTER ===== -->
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
             <h4>NOVAWEAR</h4>
             <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
         </div>
-
         <div class="footer-col">
             <h4>COMPRAS</h4>
             <ul>
@@ -236,7 +96,6 @@
                 <li><a href="#">Ofertas</a></li>
             </ul>
         </div>
-
         <div class="footer-col">
             <h4>AYUDA</h4>
             <ul>
@@ -246,7 +105,6 @@
                 <li><a href="#">Contacto</a></li>
             </ul>
         </div>
-
         <div class="footer-col">
             <h4>SÍGUENOS</h4>
             <ul>
@@ -257,30 +115,17 @@
             </ul>
         </div>
     </div>
-
     <div class="copyright">
         <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
     </div>
 </footer>
 
 <script src="../js/favoritos.js"></script>
+<script src="../js/hombre_filtros.js"></script>
 <script>
 function handleFavorito(btn, producto) {
     toggleFavorito(btn, producto);
 }
-
-// Mostrar alerta al aplicar filtros
-document.querySelector('.btn-aplicar-filtros')?.addEventListener('click', function() {
-    alert('Filtros aplicados');
-});
-
-// Mensaje demo para botones de agregar al carrito
-document.querySelectorAll('.btn-agregar-carrito').forEach(btn => {
-    btn.addEventListener('click', function() {
-        alert('Producto agregado al carrito');
-    });
-});
 </script>
-
 </body>
 </html>
