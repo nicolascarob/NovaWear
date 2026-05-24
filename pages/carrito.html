@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaWear - Mi Carrito</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/carrito.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kurale&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER (VERSIÓN DE TU AMIGA - IGUAL AL DE PAGO) -->
     <header class="main-header">
         <div class="header-container">
-            <a class="Logo" href="home.html">
-                <img src="../assets/iconos/logo.svg" alt="Logo de la empresa">
+            <a class="Logo" href="../index.html">
+                <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
                 <span class="nombre-logo">NovaWear</span>
             </a>
 
-            <div class="nav-categorias">
-                <a class="boton-nav" href="#">Mujer</a>
-                <a class="boton-nav" href="#">Hombre</a>
-                <a class="boton-nav" href="#">Lo Nuevo</a>
-            </div>
+            <nav class="nav-categorias">
+                <a href="mujer.html" class="boton-nav">Mujer</a>
+                <a href="hombre.html" class="boton-nav">Hombre</a>
+                <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+            </nav>
 
-            <div class="nav-iconos">
-                <a class="boton-icon icono-con-badge" href="favoritos.html">
-                    <img src="../assets/iconos/favoritos.svg" alt="Favoritos">
-                    <span class="badge-favoritos">4</span>
+            <nav class="nav-iconos" aria-label="Herramientas de usuario">
+                <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="">
+                    <span class="badge-favoritos" id="favoritos-badge" style="display: none;"></span>
                 </a>
-                <a class="boton-icon icono-con-badge" href="carrito.html">
-                    <img src="../assets/iconos/bolsa.svg" alt="Carrito">
-                    <span class="badge" id="cart-badge">3</span>
+                <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
+                    <img src="../assets/iconos/bolsa.svg" alt="">
+                    <span class="badge" id="cart-badge">0</span>
                 </a>
-                <a class="boton-icon" href="#">
-                    <img src="../assets/iconos/cuenta.svg" alt="Usuario">
+                <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
+                    <img src="../assets/iconos/cuenta.svg" alt="">
                 </a>
-            </div>
+            </nav>
         </div>
     </header>
 
@@ -140,7 +143,7 @@
         </section>
     </main>
 
-    <!-- FOOTER (igual al de pago) -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -184,7 +187,28 @@
         </div>
     </footer>
 
-    <!-- JavaScript del carrito (TU versión, no cambia) -->
+    <!-- JavaScript del carrito -->
     <script src="../js/carrito.js"></script>
+    <script>
+        // Función para actualizar el badge de favoritos (desde localStorage de favoritos)
+        function actualizarBadgeFavoritos() {
+            const favoritos = JSON.parse(localStorage.getItem('novaWearFavoritos') || '[]');
+            const badge = document.getElementById('favoritos-badge');
+            if (badge) {
+                const cantidad = favoritos.length;
+                if (cantidad > 0) {
+                    badge.textContent = cantidad;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+        
+        // Actualizar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarBadgeFavoritos();
+        });
+    </script>
 </body>
 </html>
