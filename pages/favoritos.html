@@ -26,7 +26,10 @@
             </nav>
 
             <nav class="nav-iconos" aria-label="Herramientas de usuario">
-                <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
+                <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="">
+                    <span class="badge-favoritos" style="display: none;"></span>
+                </a>
                 <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
                 <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
             </nav>
@@ -39,49 +42,7 @@
             <p class="favoritos-subtitulo">Productos que has guardado para después</p>
             
             <div class="grid-favoritos">
-                <!-- Producto 1 -->
-                <div class="favorito-card">
-                    <div class="favorito-img" style="background-image: url('../img/Camiseta estilo polo.jpg')" role="img" aria-label="Camiseta Polo Azul">
-                    </div>
-                    <div class="favorito-info">
-                        <h3>Camiseta Polo Azul</h3>
-                        <span class="precio">$55,999 COP</span>
-                        <button class="btn-remover" tabindex="0">ELIMINAR</button>
-                    </div>
-                </div>
-
-                <!-- Producto 2 -->
-                <div class="favorito-card">
-                    <div class="favorito-img" style="background-image: url('../img/ChaquetadecueroOversize.jpg')" role="img" aria-label="Chaqueta tipo Bomber Oversize en Cuero">
-                    </div>
-                    <div class="favorito-info">
-                        <h3>Chaqueta tipo Bomber Oversize en Cuero</h3>
-                        <span class="precio">$250,000 COP</span>
-                        <button class="btn-remover" tabindex="0">ELIMINAR</button>
-                    </div>
-                </div>
-
-                <!-- Producto 3 -->
-                <div class="favorito-card">
-                    <div class="favorito-img" style="background-image: url('../img/Vestidodebroderie.jpg')" role="img" aria-label="Vestido de broderie">
-                    </div>
-                    <div class="favorito-info">
-                        <h3>Vestido de broderie</h3>
-                        <span class="precio">$180,000 COP</span>
-                        <button class="btn-remover" tabindex="0">ELIMINAR</button>
-                    </div>
-                </div>
-
-                <!-- Producto 4 -->
-                <div class="favorito-card">
-                    <div class="favorito-img" style="background-image: url('../img/Gabanbeige.webp')" role="img" aria-label="Gabán Elegante de Paño">
-                    </div>
-                    <div class="favorito-info">
-                        <h3>Gabán Elegante de Paño con Doble Botonadura</h3>
-                        <span class="precio">$190,000 COP</span>
-                        <button class="btn-remover" tabindex="0">ELIMINAR</button>
-                    </div>
-                </div>
+                <!-- Los productos se renderizan dinámicamente con JavaScript -->
             </div>
         </section>
     </main>
@@ -128,6 +89,15 @@
             <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script src="../js/favoritos.js"></script>
+    <script>
+        // Renderizar favoritos al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarFavoritos();
+            actualizarContadorFavoritos();
+        });
+    </script>
 </body>
 </html>
 
