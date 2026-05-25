@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // 🔥 CORREGIDO: Eliminamos 'http://localhost:3000' para que Railway use enrutamiento relativo automático
-    fetch("/api/productos?categoria=mujer")
+    // 🔥 CORREGIDO: Añadimos un parámetro de tiempo dinámico (?t=...) para romper la caché del navegador
+    fetch(`/api/productos?categoria=mujer&t=${Date.now()}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error en la respuesta del servidor");
