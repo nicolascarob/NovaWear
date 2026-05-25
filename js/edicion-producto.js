@@ -9,17 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const descInput = document.getElementById('productDescription');
     const imageDisplay = document.getElementById('productImageDisplay');
     
-    // CORRECCIÓN: Buscamos el botón por su clase CSS real para que no quede estático
+    // Buscamos el botón por su clase CSS real para que no quede estático
     const btnEliminar = document.querySelector('.btn-eliminar');
 
     let base64ImageString = ""; // Almacenará la nueva imagen si se cambia desde el equipo
 
-    // 2. Traer los datos reales de la prenda seleccionada desde MySQL
+    // 2. Traer los datos reales de la prenda seleccionada desde MySQL en Railway
     if (productId) {
         idInput.value = productId;
         
-        // Consumimos el endpoint dinámico GET /producto/:id en tu server.js
-        fetch(`http://localhost:3000/producto/${productId}`)
+        // 🔥 CORREGIDO: Ahora pide los datos del producto a tu servidor en internet
+        fetch(`https://novawear-production.up.railway.app/producto/${productId}`)
             .then(response => {
                 if (!response.ok) throw new Error("Producto no encontrado en la base de datos.");
                 return response.json();
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 imagen: base64ImageString || null // Si es null, el servidor mantiene la imagen original
             };
 
-            // Petición HTTP PUT a la API enviando el ID dinámico
-            fetch(`http://localhost:3000/api/productos/${updatedData.id}`, {
+            // 🔥 CORREGIDO: Petición HTTP PUT apuntando al servidor en internet
+            fetch(`https://novawear-production.up.railway.app/api/productos/${updatedData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => {
                 console.error('Error en el envío de datos:', error);
-                alert('Hubo un problema de red y no se pudo establecer comunicación con server.js.');
+                alert('Hubo un problema de red y no se pudo establecer comunicación con el servidor.');
             });
         });
     }
@@ -122,8 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const confirmar = confirm(`¿Estás completamente seguro de que deseas eliminar la prenda con ID ${productId} del catálogo? Esta acción borrará el registro en MySQL permanentemente.`);
 
             if (confirmar) {
-                // Envío de la petición DELETE con el ID dinámico de la prenda actual
-                fetch(`http://localhost:3000/api/productos/${productId}`, {
+                // 🔥 CORREGIDO: Envío de la petición DELETE a la API en internet
+                fetch(`https://novawear-production.up.railway.app/api/productos/${productId}`, {
                     method: 'DELETE'
                 })
                 .then(response => response.json())
