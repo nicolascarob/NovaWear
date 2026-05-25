@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Petición al servidor pidiendo estrictamente la categoría 'hombre'
-    fetch("http://localhost:3000/api/productos?categoria=hombre")
+    // 🔥 CORREGIDO: Eliminamos http://localhost:3000. La ruta relativa funciona en local y en Railway de forma automática.
+    fetch("/api/productos?categoria=hombre")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error en la respuesta del servidor");
@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const precioExacto = Math.round(prenda.precio);
 
                 // Estructura idéntica a tus estilos CSS (card-img, edit-badge-btn, card-info)
+                // 🔥 RECOMENDACIÓN: Asegúrate de que las rutas a los enlaces también lleven la barra '/' al inicio si usas Express. Elegimos '/pages/edicion-producto.html' o '/edicion-producto.html' según tu estructura.
                 const tarjetaHTML = `
                     <div class="product-card" data-id="${prenda.id}">
                         <div class="card-img" style="background-image: url('${rutaImagen}')" role="img" aria-label="${prenda.nombre}">
-                            <a href="edicion-producto.html?id=${prenda.id}" class="edit-badge-btn" aria-label="Editar prenda">
+                            <a href="/pages/edicion-producto.html?id=${prenda.id}" class="edit-badge-btn" aria-label="Editar prenda">
                                 <img src="../assets/iconos/edicion.svg" alt="Editar" class="edit-icon">
                             </a>
                         </div>
