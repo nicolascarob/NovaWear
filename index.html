@@ -405,5 +405,34 @@
             actualizarBadgeFavoritos();
         });
     </script>
+<!-- Cookie Consent Banner - Versión Elegante -->
+<div id="cookie-consent" style="position: fixed; bottom: 20px; right: 20px; max-width: 380px; background-color: white; color: #333; padding: 20px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 9999; font-family: 'Segoe UI', sans-serif; border: 1px solid #eee;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <span style="font-size: 28px;">🍪</span>
+        <strong style="font-size: 18px;">Aviso de cookies</strong>
+    </div>
+    <p style="font-size: 13px; line-height: 1.5; margin-bottom: 20px; color: #666;">
+        Usamos cookies para recordar tus preferencias y mejorar tu experiencia en NovaWear.
+    </p>
+    <div style="display: flex; gap: 12px;">
+        <button id="cookie-accept" style="flex: 1; background-color: #000; color: white; border: none; padding: 10px; border-radius: 40px; cursor: pointer; font-weight: bold;">Aceptar</button>
+        <button id="cookie-more" style="background-color: transparent; color: #666; border: 1px solid #ddd; padding: 10px; border-radius: 40px; cursor: pointer;">Más info</button>
+    </div>
+</div>
+
+<script>
+    if (localStorage.getItem('cookiesAceptadas') === 'true') {
+        document.getElementById('cookie-consent').style.display = 'none';
+    }
+    
+    document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem('cookiesAceptadas', 'true');
+        document.getElementById('cookie-consent').style.display = 'none';
+    });
+    
+    document.getElementById('cookie-more').addEventListener('click', function() {
+        alert('🍪 NovaWear utiliza cookies técnicas necesarias para el funcionamiento del sitio (carrito, favoritos). No compartimos tus datos con terceros.');
+    });
+</script>
 </body>
 </html>
