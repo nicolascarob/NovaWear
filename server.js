@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const path = require("path"); // Importamos path para manejar las rutas de archivos perfectamente
 
 const app = express();
 
@@ -8,6 +9,9 @@ app.use(cors());
 // Aumentamos el límite por si subes imágenes pesadas en base64 desde el PC
 app.use(express.json({ limit: "50mb" })); 
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
+
+// 🔥 ESTA LÍNEA HACE QUE TU INDEX.HTML Y CARPETAS (CSS, JS, IMG) SE VEAN EN INTERNET
+app.use(express.static(__dirname));
 
 const db = mysql.createConnection({
     host: process.env.MYSQLHOST,
@@ -240,6 +244,17 @@ app.delete("/api/productos/:id", (req, res) => {
             message: "El producto ha sido borrado exitosamente de MySQL"
         });
     });
+});
+
+
+// 🌐 RUTAS PARA MOSTRAR LAS PÁGINAS DE LA CARPETA /PAGES SIN PROBLEMAS DE RUTA
+app.get("/create", (req, res) => {
+    res.sendFile(path.join(__dirname, "pages", "create.html"));
+});
+
+app.get("/login-page", (req, res) => {
+    // Le puse "/login-page" a la URL para que no choque con el POST de "/login" que procesa tus datos.
+    res.sendFile(path.join(__dirname, "pages", "login.html"));
 });
 
 
