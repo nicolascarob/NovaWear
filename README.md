@@ -2,7 +2,7 @@
 
 El sistema propuesto consiste en una plataforma eCommerce web orientada a la venta de ropa juvenil y moda contemporánea. La aplicación permite a los usuarios explorar un catálogo de productos organizados por categorías (mujer y hombre), visualizar detalles de cada prenda, agregar productos a un carrito de compras, guardar productos en favoritos y realizar el proceso de pago de manera segura.
 
-
+Adicionalmente , el sistema contará con un módulo administrativo que permitirá la gestión de productos, garantizando el correcto funcionamiento de la tienda en línea.
 
 ## Integrantes
 
@@ -42,6 +42,9 @@ Además, el sistema mostrará de manera clara el número total de productos aña
 RF6. Procesamiento de compra:
 Durante el proceso de compra, el sistema deberá garantizar la seguridad de la información del usuario mediante el uso de una pasarela de pago segura para la realización de la transacción.
 Una vez efectuado el pago, el sistema deberá generar una confirmación de compra, la cual podrá mostrarse en pantalla y enviarse al correo electrónico registrado por el usuario. Esta confirmación incluirá un resumen del pedido realizado, detalles de los productos adquiridos, el valor total pagado y la información de envío, sirviendo como comprobante de la transacción.
+
+RF7. Gestión administrativa
+El sistema debe permitir al administrador agregar, editar y eliminar productos.
 
 
 3.2 Requerimientos No Funcionales
