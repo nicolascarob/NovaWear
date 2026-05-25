@@ -3,181 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago - NovaWear</title>
-
+    <title>NovaWear - Finalizar Compra</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/styles-pago.css?v=1.2">
+    <link rel="stylesheet" href="../css/pago.css">
 </head>
 <body>
+    <header class="main-header">
+        <div class="header-container">
+            <a class="Logo" href="../index.html">
+                <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+                <span class="nombre-logo">NovaWear</span>
+            </a>
 
-<header class="main-header">
-    <div class="header-container">
-        <a class="Logo" href="../index.html">
-            <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
-            <span class="nombre-logo">NovaWear</span>
-        </a>
+            <nav class="nav-categorias">
+                <a href="mujer.html" class="boton-nav">Mujer</a>
+                <a href="hombre.html" class="boton-nav">Hombre</a>
+                <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+            </nav>
 
-        <nav class="nav-categorias">
-            <a href="mujer.html" class="boton-nav">Mujer</a>
-            <a href="hombre.html" class="boton-nav">Hombre</a>
-            <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
-        </nav>
+            <nav class="nav-iconos" aria-label="Herramientas de usuario">
+                <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
+                    <img src="../assets/iconos/favoritos.svg" alt="">
+                    <span class="badge-favoritos" id="favoritos-badge" style="display: none;"></span>
+                </a>
+                <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
+                    <img src="../assets/iconos/bolsa.svg" alt="">
+                    <span class="badge" id="cart-badge">0</span>
+                </a>
+                <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
+                    <img src="../assets/iconos/cuenta.svg" alt="">
+                </a>
+            </nav>
+        </div>
+    </header>
 
-        <nav class="nav-iconos" aria-label="Herramientas de usuario">
-            <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
-            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
-            <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
-        </nav>
+    <!-- MAIN - PÁGINA DE PAGO -->
+    <main>
+        <section class="pago-contenido">
+            <h1>FINALIZAR COMPRA</h1>
+            <p class="pago-subtitulo">Completa los datos para realizar el pago</p>
+            
+            <div class="pago-grid">
+                <!-- COLUMNA IZQUIERDA: FORMULARIO DE PAGO -->
+                <div class="formulario-pago">
+                    <h3>💳 Datos de pago</h3>
+                    
+                    <form id="paymentForm">
+                        <!-- Número de tarjeta -->
+                        <div class="campo">
+                            <label>Número de tarjeta</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="off">
+                            <small>🔒 Prueba: 4111 1111 1111 1111</small>
+                        </div>
+                        
+                        <!-- Fila: Fecha + CVV -->
+                        <div class="fila-dos">
+                            <div class="campo">
+                                <label>Fecha (MM/AA)</label>
+                                <input type="text" id="expiryDate" placeholder="12/28" maxlength="5">
+                            </div>
+                            <div class="campo">
+                                <label>CVV</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="4">
+                                <small>Código de seguridad</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Nombre en tarjeta -->
+                        <div class="campo">
+                            <label>Nombre en la tarjeta</label>
+                            <input type="text" id="cardName" placeholder="Como aparece en la tarjeta">
+                        </div>
+                        
+                        <!-- Email (para facturación) -->
+                        <div class="campo">
+                            <label>Correo electrónico</label>
+                            <input type="email" id="email" placeholder="tucorreo@ejemplo.com">
+                            <small>Recibirás la factura aquí</small>
+                        </div>
+                        
+                        <!-- SIMULADOR DE RESULTADO (para el profesor) -->
+                        <div class="campo simulador">
+                            <label>🎮 Modo demostración - Resultado del pago</label>
+                            <select id="simulateResult">
+                                <option value="approved">✅ Pago APROBADO (demostración)</option>
+                                <option value="rejected">❌ Pago RECHAZADO (demostración)</option>
+                                <option value="pending">⏳ Pago PENDIENTE (demostración)</option>
+                            </select>
+                            <small>⚠️ El profesor puede elegir el resultado para ver los diferentes escenarios</small>
+                        </div>
+                        
+                        <!-- Botones -->
+                        <div class="botones-pago">
+                            <button type="button" class="btn-volver-pago" id="backToCart">← Volver al carrito</button>
+                            <button type="submit" class="btn-pagar-ahora">Pagar ahora</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Métodos de pago aceptados -->
+                    <div class="metodos-aceptados">
+                        <p>Métodos de pago aceptados:</p>
+                        <div class="iconos-metodos">
+                            <span>Visa</span>
+                            <span>Mastercard</span>
+                            <span>American Express</span>
+                            <span>PSE</span>
+                            <span>Nequi</span>
+                            <span>Daviplata</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COLUMNA DERECHA: RESUMEN DEL PEDIDO -->
+                <div class="resumen-pedido">
+                    <h3>📦 Resumen del pedido</h3>
+                    
+                    <div id="productos-resumen" class="productos-resumen">
+                        <div class="cargando">Cargando productos...</div>
+                    </div>
+                    
+                    <div class="totales">
+                        <div class="total-linea">
+                            <span>Subtotal:</span>
+                            <span id="subtotal-valor">$0 COP</span>
+                        </div>
+                        <div class="total-linea">
+                            <span>Envío:</span>
+                            <span id="envio-valor">$15,000 COP</span>
+                        </div>
+                        <div class="total-linea total-grande">
+                            <span>TOTAL:</span>
+                            <span id="total-valor">$0 COP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="seguridad-nota">
+                        <p>🔒 Pago 100% seguro</p>
+                        <small>Tus datos están protegidos con encriptación SSL</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NOVAWEAR</h4>
+                <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>COMPRAS</h4>
+                <ul>
+                    <li><a href="#">Mujer</a></li>
+                    <li><a href="#">Hombre</a></li>
+                    <li><a href="#">Lo Nuevo</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Tallas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>SÍGUENOS</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de resultado de pago -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">✅</div>
+            <h2 id="modalTitle">Pago aprobado</h2>
+            <p id="modalMessage">Tu pago ha sido procesado exitosamente</p>
+            <div id="modalDetails" class="modal-details"></div>
+            <button id="modalCloseBtn" class="modal-close-btn">Continuar</button>
+        </div>
     </div>
-</header>
 
-<main class="main-content">
-    <h1>Pago</h1>
-    <p class="subtitulo">Información de la compra</p>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="nombres">Primer Nombre</label>
-            <input id="nombres" type="text" class="input-field">
-        </div>
-        <div class="grupo-filas">
-            <label for="apellidos">Apellido</label>
-            <input id="apellidos" type="text" class="input-field">
-        </div>
-    </div>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="correo">Correo</label>
-            <input id="correo" type="email" class="input-field">
-        </div>
-    </div>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="celular">Celular</label>
-            <input id="celular" type="tel" class="input-field">
-        </div>
-    </div>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="direccion">Dirección</label>
-            <input id="direccion" type="text" class="input-field">
-        </div>
-    </div>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="ciudad">Ciudad</label>
-            <input id="ciudad" type="text" class="input-field">
-        </div>
-        <div class="grupo-filas">
-            <label for="departamento">Departamento</label>
-            <input id="departamento" type="text" class="input-field">
-        </div>
-    </div>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="codigo-postal">Código Postal</label>
-            <input id="codigo-postal" type="text" class="input-field">
-        </div>
-    </div>
-
-        <p class="subtitulo">Información sobre el pago</p>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="num-tarjeta">Número de Tarjeta</label>
-            <input id="num-tarjeta" type="text" class="input-field">
-        </div>
-    </div>
-
-    <div class="filas">
-        <div class="grupo-filas">
-            <label for="Caducidad">Fecha de Caducidad</label>
-            <input id="Caducidad" type="text" class="input-field">
-        </div>
-        <div class="grupo-filas">
-            <label for="CVV">CVV</label>
-            <input id="CVV" type="text" class="input-field">
-        </div>
-    </div>
-
-    <section class="resumen-pedido">
-        <h3>Resumen del pedido</h3>
-        <div class="resumen-item">
-            <div>Gaban beige minimalista</div>
-            <div>$289.000</div>
-        </div>
-        <div class="resumen-detalle">
-            <span>Subtotal</span>
-            <span>$289.000</span>
-        </div>
-        <div class="resumen-detalle">
-            <span>Envío</span>
-            <span class="resumen-free">Gratis</span>
-        </div>
-        <div class="resumen-total">
-            <strong>Total</strong>
-            <strong>$289.000</strong>
-        </div>
-    </section>
-
-    <div class="btn-container">
-        <button class="btn-pedido" onclick="window.location.href='confirmacion.html';">Realizar pedido</button>
-    </div>
-
-</main>
-
-
-<!-- ===== FOOTER ===== -->
-<footer>
-    <div class="footer-grid">
-
-        <div class="footer-col">
-            <h4>NOVAWEAR</h4>
-            <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
-        </div>
-
-        <div class="footer-col">
-            <h4>COMPRAS</h4>
-            <ul>
-                <li><a href="#">Mujer</a></li>
-                <li><a href="#">Hombre</a></li>
-                <li><a href="#">Lo Nuevo</a></li>
-                <li><a href="#">Ofertas</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>AYUDA</h4>
-            <ul>
-                <li><a href="#">Envíos</a></li>
-                <li><a href="#">Devoluciones</a></li>
-                <li><a href="#">Tallas</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>SÍGUENOS</h4>
-            <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">TikTok</a></li>
-                <li><a href="#">Pinterest</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="copyright">
-        <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
-    </div>
-</footer>
-
+     <script src="../js/pago.js"></script>
+    <script src="../js/favoritos.js"></script>
+    <script>
+        // Función para actualizar el badge de favoritos (USA LA CLAVE CORRECTA)
+        function actualizarBadgeFavoritos() {
+            const favoritos = JSON.parse(localStorage.getItem('novawear_favoritos') || '[]');
+            const badge = document.getElementById('favoritos-badge');
+            if (badge) {
+                const cantidad = favoritos.length;
+                if (cantidad > 0) {
+                    badge.textContent = cantidad;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+        
+        // Función para actualizar el badge del carrito
+        function actualizarBadgeCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carritoNovaWear') || '[]');
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                let totalProductos = 0;
+                carrito.forEach(item => {
+                    totalProductos += item.cantidad || 1;
+                });
+                badge.textContent = totalProductos;
+                badge.style.display = 'flex';
+            }
+        }
+        
+        // Actualizar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarBadgeFavoritos();
+            actualizarBadgeCarrito();
+        });
+        // Escuchar cambios en localStorage desde otras pestañas/ventanas
+window.addEventListener('storage', function(e) {
+    if (e.key === 'novawear_favoritos') {
+        const nuevosFavoritos = JSON.parse(e.newValue || '[]');
+        const badge = document.getElementById('favoritos-badge');
+        if (badge) {
+            const cantidad = nuevosFavoritos.length;
+            if (cantidad > 0) {
+                badge.textContent = cantidad;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+    }
+});
+    </script>
+</body>
+</html>
