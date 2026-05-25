@@ -12,6 +12,57 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/home.css">
+    
+    <style>
+        /* Asegurar que el badge del carrito se vea igual que el de favoritos */
+        .icono-bolsa {
+            position: relative;
+        }
+        
+        #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+        }
+        
+        .icono-favoritos {
+            position: relative;
+        }
+        
+        #favoritos-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,13 +82,18 @@
             </nav>
 
             <nav class="nav-iconos" aria-label="Herramientas de usuario">
+                <!-- Corazón de favoritos con su circulito rojo -->
                 <a href="pages/favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
                     <img src="assets/iconos/favoritos.svg" alt="">
-                    <span class="badge-favoritos" style="display: none;"></span>
+                    <span id="favoritos-badge" style="display: none;"></span>
                 </a>
-                <a href="pages/carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
+                
+                <!-- Bolsa del carrito con su circulito rojo (IGUAL QUE EL CORAZÓN) -->
+                <a href="pages/carrito.html" class="boton-icon icono-bolsa" style="position: relative;" aria-label="Ver mi bolsa">
                     <img src="assets/iconos/bolsa.svg" alt="">
+                    <span id="cart-badge" style="display: none;">0</span>
                 </a>
+                
                 <a href="pages/login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
                     <img src="assets/iconos/cuenta.svg" alt="">
                 </a>
@@ -45,14 +101,12 @@
         </div>
     </header>
 
-    <!-- MAIN (requisito de HTML semántico) -->
     <main>
-        <!-- HERO con imagen Kendall Jenner -->
+        <!-- HERO -->
         <section class="hero-kendall" aria-label="Sección principal de moda">
             <div class="hero-contenido">
                 <h1>Elegancia Minimalista</h1>
                 <p>Descubre moda atemporal para el estilo de vida moderno</p>
-                <!-- Los botones fueron eliminados -->
             </div>
         </section>
 
@@ -77,7 +131,7 @@
                         </div>
                     </a>
 
-                    <button class="btn-agregar-carrito" tabindex="0">
+                    <button class="btn-agregar-carrito" onclick="agregarAlCarrito(1, 'Camiseta Polo Azul', 55999, 'img/Camiseta estilo polo.jpg')">
                         AGREGAR AL CARRITO
                     </button>
                 </div>
@@ -97,7 +151,7 @@
                         </div>
                     </a>
 
-                    <button class="btn-agregar-carrito" tabindex="0">
+                    <button class="btn-agregar-carrito" onclick="agregarAlCarrito(2, 'Chaqueta tipo Bomber Oversize en Cuero', 250000, 'img/ChaquetadecueroOversize.jpg')">
                         AGREGAR AL CARRITO
                     </button>
                 </div>
@@ -117,7 +171,7 @@
                         </div>
                     </a>
 
-                    <button class="btn-agregar-carrito" tabindex="0">
+                    <button class="btn-agregar-carrito" onclick="agregarAlCarrito(3, 'Traje Sastre Moderno (Chaleco + Palazzo)', 249900, 'img/Conjuntonegro.webp')">
                         AGREGAR AL CARRITO
                     </button>
                 </div>
@@ -137,7 +191,7 @@
                         </div>
                     </a>
 
-                    <button class="btn-agregar-carrito" tabindex="0">
+                    <button class="btn-agregar-carrito" onclick="agregarAlCarrito(4, 'Gabán Elegante de Paño con Doble Botonadura', 190000, 'img/Gabanbeige.webp')">
                         AGREGAR AL CARRITO
                     </button>
                 </div>
@@ -157,7 +211,7 @@
                         </div>
                     </a>
 
-                    <button class="btn-agregar-carrito" tabindex="0">
+                    <button class="btn-agregar-carrito" onclick="agregarAlCarrito(5, 'Vestido de broderie', 180000, 'img/Vestidodebroderie.jpg')">
                         AGREGAR AL CARRITO
                     </button>
                 </div>
@@ -177,7 +231,7 @@
                         </div>
                     </a>
 
-                    <button class="btn-agregar-carrito" tabindex="0">
+                    <button class="btn-agregar-carrito" onclick="agregarAlCarrito(6, 'Chaqueta de Mezclilla Vintage con Bolsillos Cargo', 149400, 'img/Chaqueta Denim.webp')">
                         AGREGAR AL CARRITO
                     </button>
                 </div>
@@ -227,30 +281,30 @@
             <div class="footer-col">
                 <h4>COMPRAS</h4>
                 <ul>
-                    <li><a href="#" tabindex="0">Mujer</a></li>
-                    <li><a href="#" tabindex="0">Hombre</a></li>
-                    <li><a href="#" tabindex="0">Lo Nuevo</a></li>
-                    <li><a href="#" tabindex="0">Ofertas</a></li>
+                    <li><a href="#">Mujer</a></li>
+                    <li><a href="#">Hombre</a></li>
+                    <li><a href="#">Lo Nuevo</a></li>
+                    <li><a href="#">Ofertas</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>AYUDA</h4>
                 <ul>
-                    <li><a href="#" tabindex="0">Envíos</a></li>
-                    <li><a href="#" tabindex="0">Devoluciones</a></li>
-                    <li><a href="#" tabindex="0">Tallas</a></li>
-                    <li><a href="#" tabindex="0">Contacto</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Tallas</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>SÍGUENOS</h4>
                 <ul>
-                    <li><a href="#" tabindex="0">Instagram</a></li>
-                    <li><a href="#" tabindex="0">Facebook</a></li>
-                    <li><a href="#" tabindex="0">TikTok</a></li>
-                    <li><a href="#" tabindex="0">Pinterest</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">Pinterest</a></li>
                 </ul>
             </div>
         </div>
@@ -259,16 +313,97 @@
             <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
         </div>
     </footer>
-</body>
-<script src="js/favoritos.js"></script>
-<script src="js/home.js"></script>
-<script>
-function handleFavorito(btn, producto) {
-    toggleFavorito(btn, producto);
-}
 
-document.querySelectorAll('.btn-agregar-carrito').forEach(btn => {
-    btn.addEventListener('click', () => alert('Producto agregado al carrito'));
-});
-</script>
+    <script src="js/favoritos.js"></script>
+    <script src="js/home.js"></script>
+    
+    <script>
+        // ============================================
+        // FUNCIONES DEL CARRITO
+        // ============================================
+        
+        const CARRITO_KEY = 'carritoNovaWear';
+        
+        function obtenerCarrito() {
+            const carrito = localStorage.getItem(CARRITO_KEY);
+            return carrito ? JSON.parse(carrito) : [];
+        }
+        
+        function guardarCarrito(carrito) {
+            localStorage.setItem(CARRITO_KEY, JSON.stringify(carrito));
+            actualizarBadgeCarrito();
+        }
+        
+        function agregarAlCarrito(id, nombre, precio, imagen) {
+            let carrito = obtenerCarrito();
+            const existente = carrito.find(item => item.nombre === nombre);
+            
+            if (existente) {
+                existente.cantidad = (existente.cantidad || 1) + 1;
+            } else {
+                carrito.push({
+                    id: id,
+                    nombre: nombre,
+                    precio: precio,
+                    cantidad: 1,
+                    imagen: imagen
+                });
+            }
+            
+            guardarCarrito(carrito);
+        }
+        
+        function actualizarBadgeCarrito() {
+            const carrito = obtenerCarrito();
+            let totalProductos = 0;
+            carrito.forEach(item => {
+                totalProductos += item.cantidad || 1;
+            });
+            
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                if (totalProductos > 0) {
+                    badge.textContent = totalProductos;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+        
+        function actualizarBadgeFavoritos() {
+            const favoritos = JSON.parse(localStorage.getItem('novawear_favoritos') || '[]');
+            const badge = document.getElementById('favoritos-badge');
+            if (badge) {
+                if (favoritos.length > 0) {
+                    badge.textContent = favoritos.length;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+        
+        function handleFavoritoIndex(btn, productId) {
+            const productos = {
+                1: { id: 1, nombre: 'Camiseta Polo Azul', precio: '$55,999 COP', imagen: '../img/Camiseta estilo polo.jpg' },
+                2: { id: 2, nombre: 'Chaqueta tipo Bomber Oversize en Cuero', precio: '$250,000 COP', imagen: '../img/ChaquetadecueroOversize.jpg' },
+                3: { id: 3, nombre: 'Traje Sastre Moderno (Chaleco + Palazzo)', precio: '$249,900 COP', imagen: '../img/Conjuntonegro.webp' },
+                4: { id: 4, nombre: 'Gabán Elegante de Paño con Doble Botonadura', precio: '$190,000 COP', imagen: '../img/Gabanbeige.webp' },
+                5: { id: 5, nombre: 'Vestido de broderie', precio: '$180,000 COP', imagen: '../img/Vestidodebroderie.jpg' },
+                6: { id: 6, nombre: 'Chaqueta de Mezclilla Vintage con Bolsillos Cargo', precio: '$149,400 COP', imagen: '../img/Chaqueta Denim.webp' }
+            };
+            
+            const producto = productos[productId];
+            if (producto && typeof toggleFavorito === 'function') {
+                toggleFavorito(btn, producto);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarBadgeCarrito();
+            actualizarBadgeFavoritos();
+        });
+    </script>
+</body>
 </html>
