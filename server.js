@@ -30,7 +30,7 @@ db.connect((err) => {
 });
 
 
-// ================= LOGIN =================
+// ================= LOGIN (MODIFICADO CON ROL DE ADMINISTRADOR) =================
 
 app.post("/login", (req, res) => {
     const { correo, contrasena } = req.body;
@@ -45,9 +45,25 @@ app.post("/login", (req, res) => {
         }
 
         if (result.length > 0) {
+            const usuario = result[0];
+
+            // ⚡ LA MAGIA DE LA OPCIÓN A:
+            // Interceptamos el correo que configuraste en la interfaz de Railway
+            let elRol = "cliente";
+            if (usuario.correo === "admin1@gmail.com") {
+                elRol = "admin";
+            }
+
+            // Devolvemos el JSON incluyendo el rol dinámico para el frontend
             res.json({
                 success: true,
-                mensaje: "Login exitoso"
+                mensaje: "Login exitoso",
+                user: {
+                    id: usuario.id,
+                    nombre: usuario.nombre,
+                    correo: usuario.correo,
+                    role: elRol // Envia 'admin' si coincide con el correo, de lo contrario 'cliente'
+                }
             });
         } else {
             res.json({
