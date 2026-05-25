@@ -10,11 +10,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../css/producto_styles.css">
+    
+    <style>
+        .icono-bolsa { position: relative; }
+        #cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+        }
+        .icono-favoritos { position: relative; }
+        #favoritos-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ===== HEADER CON BADGE ===== -->
+<!-- ===== HEADER CON BADGES ===== -->
 <header class="main-header">
     <div class="header-container">
         <a class="Logo" href="../index.html">
@@ -31,10 +71,11 @@
         <nav class="nav-iconos" aria-label="Herramientas de usuario">
             <a href="favoritos.html" class="boton-icon icono-favoritos" style="position: relative;" aria-label="Ver mis favoritos">
                 <img src="../assets/iconos/favoritos.svg" alt="">
-                <span class="badge-favoritos" style="display: none;"></span>
+                <span id="favoritos-badge" style="display: none;"></span>
             </a>
-            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa">
+            <a href="carrito.html" class="boton-icon icono-bolsa" style="position: relative;" aria-label="Ver mi bolsa">
                 <img src="../assets/iconos/bolsa.svg" alt="">
+                <span id="cart-badge" style="display: none;">0</span>
             </a>
             <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
                 <img src="../assets/iconos/cuenta.svg" alt="">
@@ -75,7 +116,7 @@
 
             <div class="cantidad">
                 <p>Cantidad</p>
-                <select>
+                <select id="cantidad-select">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -90,10 +131,10 @@
                     <img src="../assets/iconos/favoritos.svg" alt="">
                 </button>
 
-                <a href="carrito.html" class="add-cart">
+                <button class="add-cart" onclick="agregarProductoAlCarrito()">
                     <img src="../assets/iconos/bolsa.svg" alt="">
                     Añadir al carrito
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -176,9 +217,74 @@ function handleFavoritoProducto(btn) {
     }
 }
 
+// Función para agregar el producto actual al carrito
+function agregarProductoAlCarrito() {
+    const cantidad = parseInt(document.getElementById('cantidad-select').value);
+    const producto = {
+        id: parseInt(currentProductId),
+        nombre: document.querySelector('.producto-info h1').textContent,
+        precio: parseInt(document.querySelector('.producto-info .precio').textContent.replace(/[^0-9]/g, '')),
+        cantidad: cantidad,
+        imagen: document.querySelector('.producto-img img').src
+    };
+    
+    // Usar la función global de carrito
+    if (typeof agregarAlCarritoGlobal === 'function') {
+        agregarAlCarritoGlobal(producto.id, producto.nombre, producto.precio, producto.imagen);
+    } else {
+        // Función de respaldo
+        let carrito = JSON.parse(localStorage.getItem('carritoNovaWear') || '[]');
+        const existente = carrito.find(item => item.nombre === producto.nombre);
+        
+        if (existente) {
+            existente.cantidad += producto.cantidad;
+        } else {
+            carrito.push({
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: producto.precio,
+                cantidad: producto.cantidad,
+                imagen: producto.imagen
+            });
+        }
+        
+        localStorage.setItem('carritoNovaWear', JSON.stringify(carrito));
+        
+        const badge = document.getElementById('cart-badge');
+        if (badge) {
+            let total = 0;
+            carrito.forEach(item => total += item.cantidad);
+            badge.textContent = total;
+            badge.style.display = 'flex';
+        }
+    }
+}
+
+// Actualizar badges
+function actualizarBadgeCarritoGlobal() {
+    const carrito = JSON.parse(localStorage.getItem('carritoNovaWear') || '[]');
+    let total = 0;
+    carrito.forEach(item => total += item.cantidad);
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        badge.textContent = total;
+        badge.style.display = total > 0 ? 'flex' : 'none';
+    }
+}
+
+function actualizarBadgeFavoritosGlobal() {
+    const favoritos = JSON.parse(localStorage.getItem('novawear_favoritos') || '[]');
+    const badge = document.getElementById('favoritos-badge');
+    if (badge) {
+        badge.textContent = favoritos.length;
+        badge.style.display = favoritos.length > 0 ? 'flex' : 'none';
+    }
+}
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
-    actualizarContadorFavoritos();
+    actualizarBadgeCarritoGlobal();
+    actualizarBadgeFavoritosGlobal();
     
     // Verificar si el producto actual está en favoritos
     if (esFavorito(parseInt(currentProductId))) {
@@ -203,6 +309,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
 </body>
 </html>
