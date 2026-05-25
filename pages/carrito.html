@@ -48,62 +48,9 @@
             <p class="carrito-subtitulo">Revisa tus productos antes de comprar</p>
             
             <div class="carrito-grid">
-                <!-- Lista de productos -->
-                <div class="productos-lista">
-                    
-                    <!-- Producto 1 -->
-                    <div class="carrito-item">
-                        <div class="item-img" style="background-image: url('../img/Camiseta estilo polo.jpg')" role="img" aria-label="Camiseta Polo Azul"></div>
-                        <div class="item-detalles">
-                            <h3>Camiseta Polo Azul</h3>
-                            <p class="item-precio">$55,999 COP</p>
-                            <div class="item-cantidad">
-                                <button class="cantidad-btn" aria-label="Disminuir cantidad" tabindex="0">-</button>
-                                <span class="cantidad-num">1</span>
-                                <button class="cantidad-btn" aria-label="Aumentar cantidad" tabindex="0">+</button>
-                            </div>
-                            <button class="item-eliminar" tabindex="0">Eliminar</button>
-                        </div>
-                        <div class="item-subtotal">
-                            $55,999 COP
-                        </div>
-                    </div>
-
-                    <!-- Producto 2 -->
-                    <div class="carrito-item">
-                        <div class="item-img" style="background-image: url('../img/ChaquetadecueroOversize.jpg')" role="img" aria-label="Chaqueta tipo Bomber Oversize en Cuero"></div>
-                        <div class="item-detalles">
-                            <h3>Chaqueta tipo Bomber Oversize en Cuero</h3>
-                            <p class="item-precio">$250,000 COP</p>
-                            <div class="item-cantidad">
-                                <button class="cantidad-btn" aria-label="Disminuir cantidad" tabindex="0">-</button>
-                                <span class="cantidad-num">1</span>
-                                <button class="cantidad-btn" aria-label="Aumentar cantidad" tabindex="0">+</button>
-                            </div>
-                            <button class="item-eliminar" tabindex="0">Eliminar</button>
-                        </div>
-                        <div class="item-subtotal">
-                            $250,000 COP
-                        </div>
-                    </div>
-
-                    <!-- Producto 3 -->
-                    <div class="carrito-item">
-                        <div class="item-img" style="background-image: url('../img/Vestidodebroderie.jpg')" role="img" aria-label="Vestido de broderie"></div>
-                        <div class="item-detalles">
-                            <h3>Vestido de broderie</h3>
-                            <p class="item-precio">$180,000 COP</p>
-                            <div class="item-cantidad">
-                                <button class="cantidad-btn" aria-label="Disminuir cantidad" tabindex="0">-</button>
-                                <span class="cantidad-num">2</span>
-                                <button class="cantidad-btn" aria-label="Aumentar cantidad" tabindex="0">+</button>
-                            </div>
-                            <button class="item-eliminar" tabindex="0">Eliminar</button>
-                        </div>
-                        <div class="item-subtotal">
-                            $360,000 COP
-                        </div>
-                    </div>
+                <!-- Lista de productos (se llenará con JavaScript) -->
+                <div class="productos-lista" id="productos-lista">
+                    <div class="cargando-carrito">Cargando productos...</div>
                 </div>
 
                 <!-- Resumen de compra -->
@@ -112,7 +59,7 @@
                     
                     <div class="summary-row">
                         <span>Subtotal</span>
-                        <span>$665,999 COP</span>
+                        <span id="subtotal-resumen">$0 COP</span>
                     </div>
                     <div class="summary-row">
                         <span>Envío</span>
@@ -120,7 +67,7 @@
                     </div>
                     <div class="summary-row total">
                         <span>TOTAL</span>
-                        <span>$680,999 COP</span>
+                        <span id="total-resumen">$0 COP</span>
                     </div>
 
                     <div class="metodos-pago">
@@ -135,8 +82,8 @@
                     </div>
 
                     <div class="carrito-botones">
-                        <button class="btn-volver" tabindex="0">← SEGUIR COMPRANDO</button>
-                        <button class="btn-proceder" tabindex="0">PROCEDER AL PAGO</button>
+                        <button class="btn-volver" id="btn-volver" tabindex="0">← SEGUIR COMPRANDO</button>
+                        <button class="btn-proceder" id="btn-proceder" tabindex="0">PROCEDER AL PAGO</button>
                     </div>
                 </aside>
             </div>
@@ -154,30 +101,30 @@
             <div class="footer-col">
                 <h4>COMPRAS</h4>
                 <ul>
-                    <li><a href="#" tabindex="0">Mujer</a></li>
-                    <li><a href="#" tabindex="0">Hombre</a></li>
-                    <li><a href="#" tabindex="0">Lo Nuevo</a></li>
-                    <li><a href="#" tabindex="0">Ofertas</a></li>
+                    <li><a href="#">Mujer</a></li>
+                    <li><a href="#">Hombre</a></li>
+                    <li><a href="#">Lo Nuevo</a></li>
+                    <li><a href="#">Ofertas</a></li>
                 </ul>
             </div>
             
             <div class="footer-col">
                 <h4>AYUDA</h4>
                 <ul>
-                    <li><a href="#" tabindex="0">Envíos</a></li>
-                    <li><a href="#" tabindex="0">Devoluciones</a></li>
-                    <li><a href="#" tabindex="0">Tallas</a></li>
-                    <li><a href="#" tabindex="0">Contacto</a></li>
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Tallas</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
             
             <div class="footer-col">
                 <h4>SÍGUENOS</h4>
                 <ul>
-                    <li><a href="#" tabindex="0">Instagram</a></li>
-                    <li><a href="#" tabindex="0">Facebook</a></li>
-                    <li><a href="#" tabindex="0">TikTok</a></li>
-                    <li><a href="#" tabindex="0">Pinterest</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">Pinterest</a></li>
                 </ul>
             </div>
         </div>
@@ -186,30 +133,9 @@
             <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="../js/favoritos.js"></script>
 
-    <!-- JavaScript del carrito -->
+    <!-- JavaScript -->
     <script src="../js/carrito.js"></script>
-    <script>
-        // Función para actualizar el badge de favoritos (desde localStorage de favoritos)
-        function actualizarBadgeFavoritos() {
-            const favoritos = JSON.parse(localStorage.getItem('novaWearFavoritos') || '[]');
-            const badge = document.getElementById('favoritos-badge');
-            if (badge) {
-                const cantidad = favoritos.length;
-                if (cantidad > 0) {
-                    badge.textContent = cantidad;
-                    badge.style.display = 'flex';
-                } else {
-                    badge.style.display = 'none';
-                }
-            }
-        }
-        
-        // Actualizar al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            actualizarBadgeFavoritos();
-        });
-    </script>
+    <script src="../js/favoritos.js"></script>
 </body>
 </html>
