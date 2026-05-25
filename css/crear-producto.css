@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.main-header {
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-container {
+    max-width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nombre-logo {
+    font-family: 'Kurale', serif;
+    font-size: 32px;
+    color: black;
+}
+
+.panel-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    background: #e0e0e0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* Formulario */
+.form-container {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.form-card h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-subtitulo {
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group input, 
+.input-group select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.input-group select:disabled {
+    background-color: #eaeaea;
+    color: #555;
+    cursor: not-allowed;
+}
+
+.form-botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-cancelar {
+    flex: 1;
+    padding: 12px;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-cancelar:hover {
+    background: #d4d4d4;
+}
+
+.btn-guardar {
+    flex: 2;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-guardar:hover {
+    background: #222;
+}
+
+a:focus, button:focus, input:focus, select:focus {
+    outline: 2px solid #ff4d4d;
+    outline-offset: 2px;
+}

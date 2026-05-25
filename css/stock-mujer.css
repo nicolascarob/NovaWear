@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #fafafa;
+}
+
+/* ===== HEADER ===== */
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 75px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Logo img {
+    width: 90px;
+    height: auto;
+}
+
+.nombre-logo {
+    font-family: 'Kurale', serif;
+    font-size: 40px;
+    color: #000000;
+}
+
+.nav-categorias {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+.boton-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    min-width: 86px;
+    height: 30px;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.boton-nav.active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.boton-nav:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.nav-iconos {
+    display: flex;
+    gap: 20px;
+}
+
+.boton-icon {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease;
+}
+
+.boton-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ===== MAIN Y GRID EXTENDIDO ===== */
+.coleccion-mujer {
+    padding: 40px 4%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.contenedor-mujer {
+    display: flex;
+    width: 100%;
+}
+
+/* Cambio crítico: Ahora renderiza a 4 columnas al no tener el panel de filtros lateral */
+.grid-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid #eaeaea;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.card-img {
+    height: 380px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* ===== NUEVO BOTÓN FLOTANTE EDICIÓN (.svg) ===== */
+.edit-badge-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    background-color: #000000; /* Fondo negro corporativo */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 5;
+    text-decoration: none;
+}
+
+.edit-badge-btn:hover {
+    background-color: #333333;
+    transform: scale(1.1);
+}
+
+.edit-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1); /* Pasa el SVG a blanco para contrastar con el fondo negro */
+}
+
+/* ===== INFORMACIÓN DE TARJETA LIMPIA ===== */
+.card-info {
+    padding: 20px 15px;
+    text-align: center; /* Centrado estético para visualización limpia */
+    background-color: #ffffff;
+}
+
+.card-info h3 {
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.card-info .precio {
+    font-weight: 700;
+    color: #666;
+    font-size: 1.1rem;
+    display: block;
+}
+
+/* ===== NUEVO BOTÓN FLOTANTE INFERIOR DERECHO: CREAR PRENDA ===== */
+.btn-flotante-crear {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 50px; /* Completamente ovalado como tu diseño */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1100; /* Un paso por encima del main-header (1000) para evitar que se oculte al hacer scroll */
+}
+
+.btn-flotante-crear .icono-mas {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.btn-flotante-crear:hover {
+    background-color: #222222;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-flotante-crear:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 40px 5% 20px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-col {
+    text-align: center;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    color: #666;
+}
+
+/* Accesibilidad */
+a:focus,
+.edit-badge-btn:focus,
+.btn-flotante-crear:focus {
+    outline: 2px solid #000000;
+    outline-offset: 3px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .btn-flotante-crear {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-cards {
+        grid-template-columns: 1fr;
+    }
+}

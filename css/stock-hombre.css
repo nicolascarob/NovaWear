@@ -1,0 +1,171 @@
+/* ===== RESET Y ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #fafafa;
+}
+
+/* ===== HEADER ===== */
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 75px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Logo img { width: 90px; height: auto; }
+
+.nombre-logo {
+    font-family: 'Kurale', serif;
+    font-size: 40px;
+    color: #000000;
+}
+
+.nav-categorias {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+.boton-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    font-size: 16px;
+    padding: 5px 20px;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.boton-nav.active, .boton-nav:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.coleccion-hombre {
+    padding: 40px 4%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.contenedor-hombre {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+    border: 1px solid #eaeaea;
+    position: relative;
+}
+
+.product-card:hover { transform: translateY(-8px); }
+
+.card-img {
+    height: 380px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px 12px 0 0;
+}
+
+.edit-badge-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.edit-icon { width: 20px; filter: invert(1); }
+
+.card-info { padding: 20px; text-align: center; }
+.card-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 5px; }
+.card-info .precio { font-weight: 700; color: #666; }
+
+/* ===== BOTÓN CREAR PRENDA ===== */
+.contenedor-acciones {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.crear-prenda-btn {
+    display: inline-block;
+    padding: 18px 40px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.crear-prenda-btn:hover {
+    background-color: #333333;
+    transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 40px 5% 20px;
+    margin-top: 60px;
+}
+
+.footer-col { text-align: center; }
+.copyright { text-align: center; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; color: #666; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) { .grid-cards { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .grid-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid-cards { grid-template-columns: 1fr; } }
