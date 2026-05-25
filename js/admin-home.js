@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const adminGrid = document.querySelector(".grid-cards");
 
     if (adminGrid) {
-        // 2. Traemos las prendas en tiempo real desde la base de datos MySQL
-        // Busca la línea del fetch original y cámbiala para que tenga el "/api" intermedio:
-        fetch("http://localhost:3000/api/productos")
+        // 2. Traemos las prendas en tiempo real desde la base de datos MySQL en internet
+        // 🔥 CORREGIDO: Ahora apunta directamente a tu API en Railway
+        fetch("https://novawear-production.up.railway.app/api/productos")
             .then(res => {
                 if (!res.ok) throw new Error("Error al obtener los productos de la base de datos");
                 return res.json();
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             </a>
 
                             <div class="card-img" style="background-image: url('${rutaImagen}')" role="img" aria-label="${p.nombre}">
-                            </div>
+                                </div>
 
                             <div class="card-info">
                                 <h3>${p.nombre}</h3>
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(err => {
                 console.error("Error cargando el catálogo del administrador:", err);
-                adminGrid.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">No se pudieron cargar los productos. Revisa la terminal.</p>`;
+                adminGrid.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">No se pudieron cargar los productos en internet. Revisa la consola.</p>`;
             });
     }
 });
