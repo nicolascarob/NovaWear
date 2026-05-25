@@ -12,6 +12,36 @@ const productosMujer = [
     { id: 108, nombre: 'Camisa de lana', precio: 75000, precioTexto: '$75,000 COP', imagen: '../img/camisa_lana.jpeg', categoria: 'tops', tallas: ['XS', 'S', 'M', 'L'] }
 ];
 
+// Función para agregar al carrito
+function agregarAlCarrito(id, nombre, precio, imagen) {
+    console.log('➕ Agregando desde mujer_filtros:', {id, nombre, precio, imagen});
+    
+    let carrito = JSON.parse(localStorage.getItem('carritoNovaWear') || '[]');
+    const existente = carrito.find(item => item.nombre === nombre);
+    
+    if (existente) {
+        existente.cantidad = (existente.cantidad || 1) + 1;
+    } else {
+        carrito.push({
+            id: id,
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1,
+            imagen: imagen
+        });
+    }
+    
+    localStorage.setItem('carritoNovaWear', JSON.stringify(carrito));
+    
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        let total = 0;
+        carrito.forEach(item => total += item.cantidad);
+        badge.textContent = total;
+        badge.style.display = 'flex';
+    }
+}
+
 // Función para renderizar productos
 function renderizarProductos(productos) {
     const grid = document.getElementById('productosGrid');
@@ -28,16 +58,19 @@ function renderizarProductos(productos) {
     
     grid.innerHTML = productos.map(producto => `
         <div class="product-card" data-product-id="${producto.id}">
-            <div class="card-img" style="background-image: url('${producto.imagen}')">
-                <button class="heart-btn" onclick="handleFavorito(this, {id:${producto.id}, nombre:'${producto.nombre}', precio:'${producto.precioTexto}', imagen:'${producto.imagen}'})" aria-pressed="false">
-                    <img src="../assets/iconos/favoritos.svg" class="heart-icon">
-                </button>
-            </div>
-            <div class="card-info">
-                <h3>${producto.nombre}</h3>
-                <span class="precio">${producto.precioTexto}</span>
-                <button class="btn-agregar-carrito" onclick="agregarAlCarrito(${producto.id})">AGREGAR AL CARRITO</button>
-            </div>
+            <button class="heart-btn" onclick="handleFavorito(this, {id:${producto.id}, nombre:'${producto.nombre}', precio:'${producto.precioTexto}', imagen:'${producto.imagen}'})" aria-pressed="false">
+                <img src="../assets/iconos/favoritos.svg" class="heart-icon">
+            </button>
+            
+            <a href="producto.html?id=${producto.id}" class="product-link">
+                <div class="card-img" style="background-image: url('${producto.imagen}')"></div>
+                <div class="card-info">
+                    <h3>${producto.nombre}</h3>
+                    <span class="precio">${producto.precioTexto}</span>
+                </div>
+            </a>
+            
+            <button class="btn-agregar-carrito" onclick="agregarAlCarrito(${producto.id}, '${producto.nombre}', ${producto.precio}, '${producto.imagen}')">AGREGAR AL CARRITO</button>
         </div>
     `).join('');
     
@@ -45,7 +78,7 @@ function renderizarProductos(productos) {
     document.querySelectorAll('.heart-btn').forEach(btn => {
         const card = btn.closest('.product-card');
         if (card && card.dataset.productId) {
-            if (esFavorito(parseInt(card.dataset.productId))) {
+            if (typeof esFavorito === 'function' && esFavorito(parseInt(card.dataset.productId))) {
                 btn.classList.add('liked');
                 btn.setAttribute('aria-pressed', 'true');
             }
@@ -62,7 +95,6 @@ function obtenerFiltrosSeleccionados() {
     return { categorias, tallas, precios };
 }
 
-// Función para verificar si un producto cumple con el filtro de precio
 function cumpleFiltroPrecio(precio, rangosPrecio) {
     if (rangosPrecio.length === 0) return true;
     
@@ -78,39 +110,24 @@ function cumpleFiltroPrecio(precio, rangosPrecio) {
     });
 }
 
-// Función para verificar si un producto cumple con el filtro de talla
 function cumpleFiltroTalla(tallasProducto, tallasSeleccionadas) {
     if (tallasSeleccionadas.length === 0) return true;
     return tallasSeleccionadas.some(talla => tallasProducto.includes(talla));
 }
 
-// Función principal para aplicar filtros
 function aplicarFiltros() {
     const { categorias, tallas, precios } = obtenerFiltrosSeleccionados();
     
     const productosFiltrados = productosMujer.filter(producto => {
-        // Filtro por categoría
-        if (categorias.length > 0 && !categorias.includes(producto.categoria)) {
-            return false;
-        }
-        
-        // Filtro por talla
-        if (!cumpleFiltroTalla(producto.tallas, tallas)) {
-            return false;
-        }
-        
-        // Filtro por precio
-        if (!cumpleFiltroPrecio(producto.precio, precios)) {
-            return false;
-        }
-        
+        if (categorias.length > 0 && !categorias.includes(producto.categoria)) return false;
+        if (!cumpleFiltroTalla(producto.tallas, tallas)) return false;
+        if (!cumpleFiltroPrecio(producto.precio, precios)) return false;
         return true;
     });
     
     renderizarProductos(productosFiltrados);
 }
 
-// Limpiar todos los filtros
 function limpiarFiltros() {
     document.querySelectorAll('.filtro-checkbox input').forEach(checkbox => {
         checkbox.checked = false;
@@ -118,28 +135,27 @@ function limpiarFiltros() {
     renderizarProductos(productosMujer);
 }
 
-// Función para agregar al carrito
-function agregarAlCarrito(productId) {
-    alert('Producto agregado al carrito');
+function actualizarBadgeCarritoLocal() {
+    const carrito = JSON.parse(localStorage.getItem('carritoNovaWear') || '[]');
+    let total = 0;
+    carrito.forEach(item => total += item.cantidad);
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        badge.textContent = total;
+        badge.style.display = total > 0 ? 'flex' : 'none';
+    }
 }
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
-    // Renderizar todos los productos al cargar
     renderizarProductos(productosMujer);
+    actualizarBadgeCarritoLocal();
     
-    // Evento del botón aplicar filtros
     const aplicarBtn = document.getElementById('aplicarFiltrosBtn');
-    if (aplicarBtn) {
-        aplicarBtn.addEventListener('click', aplicarFiltros);
-    }
+    if (aplicarBtn) aplicarBtn.addEventListener('click', aplicarFiltros);
     
-    // Evento del botón limpiar filtros
     const limpiarBtn = document.getElementById('limpiarFiltrosBtn');
-    if (limpiarBtn) {
-        limpiarBtn.addEventListener('click', limpiarFiltros);
-    }
+    if (limpiarBtn) limpiarBtn.addEventListener('click', limpiarFiltros);
     
-    // Actualizar contador de favoritos
-    actualizarContadorFavoritos();
+    if (typeof actualizarContadorFavoritos === 'function') actualizarContadorFavoritos();
 });
