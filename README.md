@@ -43,7 +43,7 @@ RF6. Procesamiento de compra:
 Durante el proceso de compra, el sistema deberá garantizar la seguridad de la información del usuario mediante el uso de una pasarela de pago segura para la realización de la transacción.
 Una vez efectuado el pago, el sistema deberá generar una confirmación de compra, la cual podrá mostrarse en pantalla y enviarse al correo electrónico registrado por el usuario. Esta confirmación incluirá un resumen del pedido realizado, detalles de los productos adquiridos, el valor total pagado y la información de envío, sirviendo como comprobante de la transacción.
 
-RF7. Gestión administrativa
+RF7. Gestión administrativa:
 El sistema debe permitir al administrador agregar, editar y eliminar productos.
 
 
