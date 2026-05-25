@@ -207,17 +207,20 @@ app.get("/producto/:id", (req, res) => {
 // ⚡ ACTUALIZAR PRODUCTO DESDE EL PANEL DE ADMINISTRACIÓN
 app.put("/api/productos/:id", (req, res) => {
     const { id } = req.params;
-    const { nombre, precio, descripcion, imagen } = req.body;
+    const { nombre, precio, descripcion, imagen, visible_tienda } = req.body;
 
     let sql = "";
     let params = [];
+    
+    // Si visible_tienda no viene en el cuerpo, por defecto se mantiene visible (1)
+    const visibilidad = visible_tienda !== undefined ? visible_tienda : 1;
 
     if (imagen) {
-        sql = "UPDATE productos SET nombre = ?, precio = ?, descripcion = ?, imagen = ? WHERE id = ?";
-        params = [nombre, precio, descripcion, imagen, id];
+        sql = "UPDATE productos SET nombre = ?, precio = ?, descripcion = ?, imagen = ?, visible_tienda = ? WHERE id = ?";
+        params = [nombre, precio, descripcion, imagen, visibilidad, id];
     } else {
-        sql = "UPDATE productos SET nombre = ?, precio = ?, descripcion = ? WHERE id = ?";
-        params = [nombre, precio, descripcion, id];
+        sql = "UPDATE productos SET nombre = ?, precio = ?, descripcion = ?, visible_tienda = ? WHERE id = ?";
+        params = [nombre, precio, descripcion, visibilidad, id];
     }
 
     db.query(sql, params, (err, result) => {
