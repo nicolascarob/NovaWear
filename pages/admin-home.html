@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaWear - Panel de Administración</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/admin-home.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a class="Logo" href="admin-home.html">
+                <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+                <span class="nombre-logo">NovaWear</span>
+            </a>
+
+            <nav class="nav-categorias">
+                <a href="stock-mujer.html" class="boton-nav">Mujer</a>
+                <a href="stock-hombre.html" class="boton-nav">Hombre</a>
+                <a href="#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+            </nav>
+
+            <nav class="nav-iconos" aria-label="Herramientas de usuario">
+                <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta">
+                    <img src="../assets/iconos/cuenta.svg" alt="">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-kendall" aria-label="Sección principal de moda">
+            <div class="hero-contenido">
+                <h1>Elegancia Minimalista</h1>
+                <p>Descubre moda atemporal para el estilo de vida moderno</p>
+            </div>
+        </section>
+
+        <section class="colecciones" aria-labelledby="colecciones-titulo">
+            <div class="titulo-admin-container"
+                style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 5px;">
+                <h2 id="colecciones-titulo" style="margin: 0;">COLECCIONES DESTACADAS (ADMIN)</h2>
+
+                <a href="crear-producto.html" class="btn-crear-flotante">
+                    <span class="icono-mas">+</span>
+                    <span class="texto-btn">CREAR PRENDA</span>
+                </a>
+            </div>
+            <p>Panel de control visual de prendas en tienda</p>
+
+            <div class="grid-cards">
+            </div>
+        </section>
+
+        <section class="celebridades" aria-label="Colecciones por género">
+            <div class="celebridad-card" style="background-image: url('../img/arianamujeres.jpg')" role="img"
+                aria-label="Colección mujer">
+                <div class="celebridad-contenido">
+                    <h3>MUJER</h3>
+                    <a class="btn-explorar" href="stock-mujer.html" tabindex="0">EXPLORAR COLECCIÓN</a>
+                </div>
+            </div>
+
+            <div class="celebridad-card" style="background-image: url('../img/tomhombre.jpg')" role="img"
+                aria-label="Colección hombre">
+                <div class="celebridad-contenido">
+                    <h3>HOMBRE</h3>
+                    <a class="btn-explorar" href="stock-hombre.html" tabindex="0">EXPLORAR COLECCIÓN</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="suscripcion" aria-labelledby="suscripcion-titulo">
+            <h2 id="suscripcion-titulo">MANTENTE ACTUALIZADO</h2>
+            <p>Suscríbete para recibir las últimas novedades y ofertas exclusivas</p>
+
+            <div class="suscripcion-form">
+                <label for="email-input" class="visually-hidden">Correo electrónico</label>
+                <input type="email" id="email-input" placeholder="Ingresa tu correo electrónico" tabindex="0">
+                <button id="suscribirse-btn" tabindex="0">SUSCRIBIRSE</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NOVAWEAR</h4>
+                <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>COMPRAS</h4>
+                <ul>
+                    <li><a href="#" tabindex="0">Mujer</a></li>
+                    <li><a href="#" tabindex="0">Hombre</a></li>
+                    <li><a href="#" tabindex="0">Lo Nuevo</a></li>
+                    <li><a href="#" tabindex="0">Ofertas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><a href="#" tabindex="0">Envíos</a></li>
+                    <li><a href="#" tabindex="0">Devoluciones</a></li>
+                    <li><a href="#" tabindex="0">Tallas</a></li>
+                    <li><a href="#" tabindex="0">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>SÍGUENOS</h4>
+                <ul>
+                    <li><a href="#" tabindex="0">Instagram</a></li>
+                    <li><a href="#" tabindex="0">Facebook</a></li>
+                    <li><a href="#" tabindex="0">TikTok</a></li>
+                    <li><a href="#" tabindex="0">Pinterest</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+<script src="../js/admin-home.js"></script>
+
+</html>

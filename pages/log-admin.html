@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - NovaWear</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kurale&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/styles-login.css?v=1.2">
+</head>
+<body>
+    
+<header class="main-header">
+    <div class="header-container">
+        <a class="Logo" href="../index.html">
+            <img src="../assets/iconos/logo.svg" aria-label="Logo NovaWear" alt="">
+            <span class="nombre-logo">NovaWear</span>
+        </a>
+
+        <nav class="nav-categorias">
+            <a href="mujer.html" class="boton-nav">Mujer</a>
+            <a href="hombre.html" class="boton-nav">Hombre</a>
+            <a href="../index.html#colecciones-titulo" class="boton-nav">Lo nuevo</a>
+        </nav>
+
+        <nav class="nav-iconos" aria-label="Herramientas de usuario">
+            <a href="favoritos.html" class="boton-icon icono-favoritos" aria-label="Ver mis favoritos"><img src="../assets/iconos/favoritos.svg" alt=""></a>
+            <a href="carrito.html" class="boton-icon icono-bolsa" aria-label="Ver mi bolsa"><img src="../assets/iconos/bolsa.svg" alt=""></a>
+            <a href="login.html" class="boton-icon icono-usuario" aria-label="Acceder a mi cuenta"><img src="../assets/iconos/cuenta.svg" alt=""></a>
+        </nav>
+    </div>
+</header>
+
+
+
+<div class="contenedor-login">
+    <h1>Ingreso para administradores</h1>
+    <p class="subtitulo">Inicie sesión para acceder a su cuenta de administrador.</p>
+
+    <form>
+        <div class="filas grupo-filas">
+            <label for="correo">Email</label>
+            <input type="email" id="correo" class="input-field">
+        </div>
+
+        <div class="filas grupo-filas">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" class="input-field">
+        </div>
+
+        <a href="#" class="olvido-pass">Forgot password?</a>
+        
+        <button type="button" class="boton-iniciar" onclick="window.location.href='admin-home.html'">
+        Iniciar Sesión
+        </button>
+
+    </form>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-grid">
+
+        <div class="footer-col">
+            <h4>NOVAWEAR</h4>
+            <p>Moda contemporánea para quienes buscan expresar su estilo único.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>COMPRAS</h4>
+            <ul>
+                <li><a href="#">Mujer</a></li>
+                <li><a href="#">Hombre</a></li>
+                <li><a href="#">Lo Nuevo</a></li>
+                <li><a href="#">Ofertas</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>AYUDA</h4>
+            <ul>
+                <li><a href="#">Envíos</a></li>
+                <li><a href="#">Devoluciones</a></li>
+                <li><a href="#">Tallas</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>SÍGUENOS</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">Pinterest</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        <p>&copy; 2026 NOVAWEAR. Todos los derechos reservados.</p>
+    </div>
+</footer>
