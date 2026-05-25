@@ -528,3 +528,13 @@ img {
         padding: 8px 14px;
     }
 }
+/* Para que el enlace de la tarjeta no rompa el diseño */
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.product-card {
+    position: relative;
+}
