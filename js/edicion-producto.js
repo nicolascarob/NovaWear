@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (productId) {
         idInput.value = productId;
         
-        // 🔥 CORREGIDO: Ahora pide los datos del producto a tu servidor en internet
+        // 🔥 CORREGIDO: Now pide los datos del producto a tu servidor en internet
         fetch(`https://novawear-production.up.railway.app/producto/${productId}`)
             .then(response => {
                 if (!response.ok) throw new Error("Producto no encontrado en la base de datos.");
@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 nombre: nameInput.value,
                 precio: precioLimpio,
                 descripcion: descInput.value,
-                imagen: base64ImageString || null // Si es null, el servidor mantiene la imagen original
+                imagen: base64ImageString || null, // Si es null, el servidor mantiene la imagen original
+                visible_tienda: 1 // 🔥 ADICIONADO: Garantiza que se guarde visible para la vista de clientes
             };
 
             // 🔥 CORREGIDO: Petición HTTP PUT apuntando al servidor en internet
