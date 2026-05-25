@@ -49,14 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 nombre: document.getElementById("nombre-producto").value,
                 precio: parseInt(document.getElementById("precio-producto").value) || 0,
                 descripcion: document.getElementById("descripcion-producto").value,
-                imagen: base64Image || "../img/placeholder.jpg", // Usa la subida o un placeholder por defecto
+                imagen: base64Image || "/img/placeholder.jpg", // 🔥 CORREGIDO: Ruta limpia desde la raíz pública
                 categoria: seccionOrigen,                         // Guarda 'mujer' u 'hombre' según la URL
                 visible_tienda: 0                                 // 0 = Se queda estrictamente en el stock administrativo
             };
 
             try {
-                // Petición HTTP POST real a tu endpoint actualizado en Node.js
-                const respuesta = await fetch('http://localhost:3000/api/productos', {
+                // 🔥 CORREGIDO: Petición HTTP POST real apuntando a tu backend en Railway
+                const respuesta = await fetch('https://novawear-production.up.railway.app/api/productos', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             } catch (error) {
                 console.error("Error en la petición de red:", error);
-                alert("No se pudo conectar con el servidor. Verifica que tu terminal tenga Node.js corriendo.");
+                alert("No se pudo conectar con el servidor en internet. Inténtalo de nuevo más tarde.");
             }
         });
     }
