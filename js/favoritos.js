@@ -13,33 +13,29 @@ function obtenerFavoritos() {
 function guardarFavoritos(favoritos) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(favoritos));
     actualizarContadorFavoritos();
+    // También actualizar el badge global por si acaso
+    actualizarBadgeFavoritosGlobal();
 }
 
-// Función para normalizar la ruta de la imagen (NUEVA)
+// Función para normalizar la ruta de la imagen
 function normalizarRutaImagen(ruta) {
-    // Si la ruta ya tiene ../img/ o ../assets/, está bien
     if (ruta.startsWith('../img/') || ruta.startsWith('../assets/')) {
         return ruta;
     }
-    // Si la ruta es img/... (desde index), agregar ../
     if (ruta.startsWith('img/')) {
         return '../' + ruta;
     }
-    // Si la ruta es assets/...
     if (ruta.startsWith('assets/')) {
         return '../' + ruta;
     }
     return ruta;
 }
 
-// Agregar un producto a favoritos (MODIFICADA)
+// Agregar un producto a favoritos
 function agregarAFavoritos(producto) {
     const favoritos = obtenerFavoritos();
-    
-    // Verificar si ya existe
     const existe = favoritos.some(p => p.id === producto.id);
     if (!existe) {
-        // Normalizar la ruta de la imagen antes de guardar
         const productoNormalizado = {
             ...producto,
             imagen: normalizarRutaImagen(producto.imagen)
@@ -65,30 +61,63 @@ function esFavorito(productoId) {
     return favoritos.some(p => p.id === productoId);
 }
 
-// Actualizar el contador del ícono de favoritos en el header
+// Actualizar el contador del ícono de favoritos en el header (local)
 function actualizarContadorFavoritos() {
     const favoritos = obtenerFavoritos();
     const contador = favoritos.length;
     
-    // Buscar el badge dentro del icono de favoritos en todas las páginas
     const iconosFavoritos = document.querySelectorAll('.icono-favoritos');
-    
     iconosFavoritos.forEach(icono => {
-        let badge = icono.querySelector('.badge-favoritos');
+        let badge = icono.querySelector('.badge-favoritos, #favoritos-badge');
+        if (!badge) {
+            badge = document.getElementById('favoritos-badge');
+        }
         
         if (contador > 0) {
-            if (!badge) {
-                badge = document.createElement('span');
-                badge.className = 'badge-favoritos';
+            if (badge) {
+                badge.textContent = contador;
+                badge.style.display = 'flex';
+            } else if (icono) {
+                const nuevoBadge = document.createElement('span');
+                nuevoBadge.className = 'badge-favoritos';
+                nuevoBadge.id = 'favoritos-badge';
+                nuevoBadge.textContent = contador;
+                nuevoBadge.style.display = 'flex';
                 icono.style.position = 'relative';
-                icono.appendChild(badge);
+                icono.appendChild(nuevoBadge);
             }
-            badge.textContent = contador;
-            badge.style.display = 'flex';
         } else if (badge) {
             badge.style.display = 'none';
         }
     });
+}
+
+// ACTUALIZAR BADGE GLOBAL (para que funcione en todas las páginas)
+function actualizarBadgeFavoritosGlobal() {
+    const favoritos = obtenerFavoritos();
+    const cantidad = favoritos.length;
+    
+    // Buscar por ID
+    const badgePorId = document.getElementById('favoritos-badge');
+    if (badgePorId) {
+        if (cantidad > 0) {
+            badgePorId.textContent = cantidad;
+            badgePorId.style.display = 'flex';
+        } else {
+            badgePorId.style.display = 'none';
+        }
+    }
+    
+    // Buscar por clase
+    const badgePorClase = document.querySelector('.badge-favoritos');
+    if (badgePorClase && !badgePorId) {
+        if (cantidad > 0) {
+            badgePorClase.textContent = cantidad;
+            badgePorClase.style.display = 'flex';
+        } else {
+            badgePorClase.style.display = 'none';
+        }
+    }
 }
 
 // Función principal para toggle favorito
@@ -102,6 +131,10 @@ function toggleFavorito(btn, producto) {
         btn.classList.add('liked');
         btn.setAttribute('aria-pressed', 'true');
     }
+    // Forzar actualización del badge después del cambio
+    setTimeout(() => {
+        actualizarBadgeFavoritosGlobal();
+    }, 10);
 }
 
 // Sincronizar todos los corazones en la página actual
@@ -148,7 +181,7 @@ function renderizarFavoritos() {
             <div class="card-info">
                 <h3>${producto.nombre}</h3>
                 <span class="precio">${producto.precio}</span>
-                <button class="btn-agregar-carrito" onclick="agregarAlCarrito(${producto.id})">AGREGAR AL CARRITO</button>
+                <button class="btn-agregar-carrito" onclick="agregarAlCarrito(${producto.id}, '${producto.nombre}', ${parseInt(producto.precio.replace(/[^0-9]/g, ''))}, '${producto.imagen}')">AGREGAR AL CARRITO</button>
             </div>
         </div>
     `).join('');
@@ -158,16 +191,32 @@ function renderizarFavoritos() {
 function toggleFavoritoEnPagina(productoId) {
     eliminarDeFavoritos(productoId);
     renderizarFavoritos();
-    actualizarContadorFavoritos();
+    actualizarBadgeFavoritosGlobal();
 }
 
-// Función para agregar al carrito (demo)
-function agregarAlCarrito(productoId) {
-    alert('Producto agregado al carrito');
+// Función para agregar al carrito (delegar a la función global si existe)
+function agregarAlCarrito(id, nombre, precio, imagen) {
+    if (typeof window.agregarAlCarritoGlobal === 'function') {
+        window.agregarAlCarritoGlobal(id, nombre, precio, imagen);
+    } else {
+        // Función de respaldo
+        let carrito = JSON.parse(localStorage.getItem('carritoNovaWear') || '[]');
+        const existente = carrito.find(item => item.nombre === nombre);
+        if (existente) {
+            existente.cantidad = (existente.cantidad || 1) + 1;
+        } else {
+            carrito.push({ id: id, nombre: nombre, precio: precio, cantidad: 1, imagen: imagen });
+        }
+        localStorage.setItem('carritoNovaWear', JSON.stringify(carrito));
+        if (typeof actualizarBadgeCarritoGlobal === 'function') {
+            actualizarBadgeCarritoGlobal();
+        }
+    }
 }
 
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     actualizarContadorFavoritos();
+    actualizarBadgeFavoritosGlobal();
     sincronizarCorazones();
 });
