@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Petición al servidor pidiendo la categoría mujer
-    fetch("http://localhost:3000/api/productos?categoria=mujer")
+    // 🔥 CORREGIDO: Eliminamos 'http://localhost:3000' para que Railway use enrutamiento relativo automático
+    fetch("/api/productos?categoria=mujer")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error en la respuesta del servidor");
@@ -36,10 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 // ESTRUCTURA CORREGIDA: Ajustada exactamente a tus estilos CSS (card-img, edit-badge-btn, card-info)
+                // 🔥 RECOMENDACIÓN: Aseguramos el enlace de edición con una barra absoluta '/' al inicio (por ej: '/pages/edicion-producto.html')
                 const tarjetaHTML = `
                     <div class="product-card" data-id="${prenda.id}">
                         <div class="card-img" style="background-image: url('${rutaImagen}')" role="img" aria-label="${prenda.nombre}">
-                            <a href="edicion-producto.html?id=${prenda.id}" class="edit-badge-btn" aria-label="Editar prenda">
+                            <a href="/pages/edicion-producto.html?id=${prenda.id}" class="edit-badge-btn" aria-label="Editar prenda">
                                 <img src="../assets/iconos/edicion.svg" alt="Editar" class="edit-icon">
                             </a>
                         </div>
