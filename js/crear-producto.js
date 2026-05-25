@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 precio: parseInt(document.getElementById("precio-producto").value) || 0,
                 descripcion: document.getElementById("descripcion-producto").value,
                 imagen: base64Image || "/img/placeholder.jpg", // 🔥 CORREGIDO: Ruta limpia desde la raíz pública
-                categoria: seccionOrigen,                         // Guarda 'mujer' u 'hombre' según la URL
-                visible_tienda: 0                                 // 0 = Se queda estrictamente en el stock administrativo
+                categoria: seccionOrigen,                                         // Guarda 'mujer' u 'hombre' según la URL
+                visible_tienda: 1                                                 // 1 = Visible de inmediato en la tienda pública de clientes
             };
 
             try {
