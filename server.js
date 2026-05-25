@@ -10,10 +10,11 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "hola1234",
-    database: "novawear"
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQLPORT
 });
 
 db.connect((err) => {
@@ -244,6 +245,8 @@ app.delete("/api/productos/:id", (req, res) => {
 
 // ================= PUERTO =================
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo en puerto 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
 });
